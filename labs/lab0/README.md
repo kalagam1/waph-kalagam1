@@ -33,7 +33,12 @@ Lab's URL: [Lab0](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/
 
 ## Part 1 -  Ubuntu Virtual Machine & Software Installation
 
+Created a new VirtualBox VM using the Ubuntu 22.04 ISO and allocated 4 GB RAM and 2 CPUs. After the OS was installed, I set up the following:
 
+- Installed system updates
+- Installed Apache2, Git, and Sublime Text
+- Installed Google Chrome manually via .deb package
+- Installed Wireshark and configured non-root access
 
 ### Apache Web Server Testing
 
