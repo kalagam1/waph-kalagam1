@@ -22,9 +22,6 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 - [Lab 0](labs/lab0): Development Environment Setup
 
-## Overview
-
-
 ## Report
 
 ## The lab's overview
