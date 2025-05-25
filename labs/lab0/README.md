@@ -29,7 +29,7 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 ## The lab's overview
 
-Lab's URL: [Lab0](https://github.com/MahithaKalaga-cyber/waph-mahitha.git/labs/lab0)
+Lab's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git/labs/lab0](https://github.com/MahithaKalaga-cyber/waph-mahitha.git/labs/lab0)
 
 ## Part 1 -  Ubuntu Virtual Machine & Software Installation
 
