@@ -6,11 +6,11 @@
 
 **Name**: Mahitha Kalaga
 
-**Email**: [mailto:kalagam1@udayton.edu](kalagam1@udayton.edu)
+**Email**: [kalagam1@udayton.edu](kalagam1@udayton.edu)
 
 **Short-bio**:
 
-![Mahitha's headshot](/home/kalagam1/waph-mahitha/Images/mahi.jpeg)
+![Mahitha's headshot](/home/Downloads/mahi.jpeg)
 
 ## Repository Information
 
