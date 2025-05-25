@@ -23,7 +23,7 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 [Hands-on exercises in Lectures](labs)
 
-- [Lab 0](labs/lab0):Development Environment Setup
+- [Lab 0](labs/lab0): Development Environment Setup
 
 ### Hackations
 
