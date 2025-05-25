@@ -10,7 +10,7 @@
 
 **Short-bio**:
 
-![Mahitha's headshot](/home/Downloads/mahi.jpeg)
+![Mahitha's headshot](images/mahi.jpeg)
 
 ## Repository Information
 
