@@ -8,7 +8,8 @@
 
 **Email**: [kalagam1@udayton.edu](kalagam1@udayton.edu)
 
-**Short-bio**:
+**Short-bio**: Cybersecurity enthusiast interested in ethical hacking, network defense, and secure coding practices. Continuously exploring vulnerabilities and how to defend against them.
+
 
 ![Mahitha's headshot](images/mahi.jpeg)
 
