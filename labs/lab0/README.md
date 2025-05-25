@@ -37,9 +37,9 @@ Lab's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git/labs/lab0](L
 
 ### Apache Web Server Testing
 
-![Apache Web Server in my Ubuntu VM](images/2.jpeg)
+![Apache Web Server in my Ubuntu VM](../../images/2.jpeg)
 
-![Apache Web Server in my laptop browser](images/1.jpeg)
+![Apache Web Server in my laptop browser](../../images/1.jpeg)
 
 ## Part 2 - git Repositories and Exercises
 
