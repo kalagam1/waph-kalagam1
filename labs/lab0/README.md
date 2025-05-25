@@ -26,6 +26,8 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 ## The lab's overview
 
+This lab focused on setting up the development environment for WAPH. In Part I, I installed Ubuntu 22.04 in VirtualBox and configured the system with essential packages. In Part II, I cloned both the public course repository and my private GitHub repository, and completed git-related tasks.
+
 Lab's URL: [Lab0](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab0)
 
 ## Part 1 -  Ubuntu Virtual Machine & Software Installation
