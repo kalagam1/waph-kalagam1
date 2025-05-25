@@ -47,13 +47,23 @@ Created a new VirtualBox VM using the Ubuntu 22.04 ISO and allocated 4 GB RAM an
 
 ## Part 2 - git Repositories and Exercises
 
-### The couse repository
+I created a private GitHub repository named waph-mahitha and shared it with the instructor by adding phung-waph as a collaborator. The repository is available at:
 
-![Course Repository]()
+### The course repository
+
+Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+
+To enable secure access, I generated an SSH key pair on my Ubuntu VM and added the public key to my GitHub account. This allowed me to clone the repository via SSH without needing a password.
+
+After cloning, I created the labs/lab0/ directory, added the lab report in README.md, and included my headshot image using a relative path. I then committed the changes and pushed them to GitHub.
+
+Below is a screenshot showing the successful git commit and git push from my VM:
+
+![Course Repository](../../images/3.jpeg)
 
 ### Private Repository
 
-![Changes Commited]()
+![Changes Commited](../../images/4.jpeg)
 
 
 
