@@ -25,6 +25,8 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 - [Lab 0](labs/lab0): Development Environment Setup
 
+- [Lab 1](labs/lab1): Foundations of the Web
+
 ### Hackations
 
 Hands-on hacking excercises
