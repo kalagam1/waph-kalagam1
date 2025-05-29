@@ -53,7 +53,7 @@ I created a private GitHub repository named waph-mahitha and shared it with the 
 
 Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
 
-![Course Repository](../../../images/3.jpeg)
+![Course Repository](../../images/3.jpeg)
 
 ### Private Repository
 
@@ -64,7 +64,7 @@ After cloning, I created the labs/lab0/ directory, added the lab report in READM
 
 Below is a screenshot showing the successful git commit and git push from my VM:
 
-![Changes Commited](../../../images/4.jpeg)
+![Changes Commited](../../images/4.jpeg)
 
 
 
