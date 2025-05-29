@@ -57,7 +57,6 @@ Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](http
 
 ### Private Repository
 
-
 To enable secure access, I generated an SSH key pair on my Ubuntu VM and added the public key to my GitHub account. This allowed me to clone the repository via SSH without needing a password.
 
 After cloning, I created the labs/lab0/ directory, added the lab report in README.md, and included my headshot image using a relative path. I then committed the changes and pushed them to GitHub.
