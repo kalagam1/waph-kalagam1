@@ -47,7 +47,7 @@ Created a new VirtualBox VM using the Ubuntu 22.04 ISO and allocated 4 GB RAM an
 
 ## Part 2 - git Repositories and Exercises
 
-I created a private GitHub repository named waph-mahitha and shared it with the instructor by adding waph-phung as a collaborator. The repository is available at:
+I created a private GitHub repository named waph-mahitha and shared it with the instructor by adding waph-phung as a collaborator. The repository is available at
 
 ### The course repository
 
