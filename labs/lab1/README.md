@@ -45,9 +45,11 @@ I used Wireshark to monitor browser activity and filter HTTP traffic. I was able
 #### Wireshark HTTP requtest for index.html 
 ![Wireshark HTTP requtest for index.html](../../images/1.1.jpeg) 
 
-Following the HTTP stream ![Following the HTTP stream](../../images/1.2.jpeg)
+#### Following the HTTP stream 
+![Following the HTTP stream](../../images/1.2.jpeg)
 
-HTTP Stream ![HTTP Stream](../../images/1.3.jpeg)
+#### HTTP Stream 
+![HTTP Stream](../../images/1.3.jpeg)
 
 ### Task 2: Understanding HTTP using Telnet and Wireshark
 
@@ -55,17 +57,17 @@ I used the telnet command to send an HTTP GET request to a server manually. Wire
 
 #### Summary:
 
-The telnet session displayed a manual HTTP request and the server's response.
+ - The telnet session displayed a manual HTTP request and the server's response.
+ - Compared to browser-generated requests, telnet requests were minimal and lacked headers like User-Agent.
+ - The response message lacked formatting compared to browser responses.
 
-Compared to browser-generated requests, telnet requests were minimal and lacked headers like User-Agent.
-
-The response message lacked formatting compared to browser responses.
-
-Terminal showing HTTP request and response ![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
+#### Terminal showing HTTP request and response 
+![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
 
  - This shows that the GET request and the HTTP request 200 OK response with the HTML content from the server. 
 
-HTTP request message in Wireshark ![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
+#### HTTP request message in Wireshark 
+![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
 
 Comparison with browser-based request:
 
@@ -78,7 +80,8 @@ Comparison with browser-based request:
 
 It only includes GET / HTTP/1.1 and Host.
 
-HTTP response message in Wireshark ![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
+#### HTTP response message in Wireshark 
+![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
 
 Comparison with Task 1 response:
 
