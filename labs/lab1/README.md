@@ -66,7 +66,22 @@ The response message lacked formatting compared to browser responses.
 
 ![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
 
+Comparison with browser-based request:
+
+ - The telnet request is simpler and lacks headers like:
+
+  - User-Agent
+  - Accept
+  - Accept-Encoding
+  - Connection
+
+ - It only includes GET / HTTP/1.1 and Host.
+
 ![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
+
+Comparison with Task 1 response:
+
+ - The content is the same, but some headers like Content-Encoding, ETag,  may vary depending on how the request was formed telnet vs browser.
 
 ## Part 2 - Basic Web Application Programming
 
