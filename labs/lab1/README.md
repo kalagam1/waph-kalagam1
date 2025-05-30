@@ -137,9 +137,15 @@ Developed echo.php that captures user input using GET and POST methods. This app
 
 Used Wireshark to capture and analyze the GET request/response for echo.php.
 
+#### HTTP GET request and response
+![HTTP GET request and response](../../images/2.3.1.jpeg)
+
 ### b. curl POST Request
 
 Used curl -d "name=Mahitha" http://localhost/echo.php to send a POST request.
+
+#### echo.php page POST request  
+![echo.php page POST request](../../images/2.3.2.jpeg)
 
 ### c. Comparison
 
