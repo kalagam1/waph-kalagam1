@@ -99,11 +99,21 @@ Comparison with Task 1 response:
 
 ### a. Hello World Program
 
-I wrote a simple C program that prints HTTP headers and a message. Compiled using gcc and placed in the cgi-bin directory.
+#### Summary:
+
+I wrote a simple C program to demonstrate a CGI web application. The code prints a basic HTTP header and a "Hello World" message. I compiled it using gcc and placed the executable in /usr/lib/cgi-bin/, which is the default CGI directory in Apache.
+
+#### Hello World CGI in C  
+![Hello World CGI in C](../../images/2.1.1.jpeg)
 
 ### b. HTML Template with CGI
 
-Created another C CGI program that outputs HTML content. I embedded the output in a basic HTML template.
+#### Summary:
+
+Next, I wrote another C CGI program that outputs valid HTML. I used a simple template from W3Schools, modified with my course and personal information.
+
+#### Hello World CGI in C  
+![Hello World CGI in C](../../images/2.1.2.jpeg)
 
 ### Task 2: A Simple PHP Web Application with User Input
 
