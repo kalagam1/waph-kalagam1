@@ -60,6 +60,14 @@ Compared to browser-generated requests, telnet requests were minimal and lacked 
 
 The response message lacked formatting compared to browser responses.
 
+![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
+
+ - This shows that the GET request and the HTTP request 200 OK response with the HTML content from the server. 
+
+![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
+
+![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
+
 ## Part 2 - Basic Web Application Programming
 
 ### Task 1: CGI Web Applications in C
