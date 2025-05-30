@@ -14,7 +14,7 @@
 
 Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
 
-This is a private repository for Mahitha Kalaga to store all code from the course. The organization of this repository is as follows.
+This is a private repository for Mahitha Kalaga to store all the code from the course. The organization of this repository is as follows.
 
 ### Labs
 
@@ -27,44 +27,69 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 ## The lab's overview
 
-This lab focused on setting up the development environment for WAPH. In Part I, I installed Ubuntu 22.04 in VirtualBox and configured the system with essential packages. In Part II, I cloned both the public course repository and my private GitHub repository, and completed git-related tasks.
+This lab focused on understanding how the web works, specifically the HTTP protocol, and creating basic web applications using CGI in C and PHP. The main outcomes included:
 
-Lab's URL: [Lab0](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab0)
+ - Capturing and analyzing HTTP traffic with Wireshark.
+ - Sending HTTP requests using telnet.
+ - Writing and deploying CGI programs in C.
+ - Developing simple PHP applications that handle GET and POST requests.
 
-## Part 1 -  Ubuntu Virtual Machine & Software Installation
+Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab1)
 
-Created a new VirtualBox VM using the Ubuntu 22.04 ISO and allocated 4 GB RAM and 2 CPUs. After the OS was installed, I set up the following:
+## Part 1 - The Web and HTTP Protocol
 
-- Installed system updates
-- Installed Apache2, Git, and Sublime Text
-- Installed Google Chrome manually via .deb package
-- Installed Wireshark and configured non-root access
+### Task 1: Familiar with the Wireshark Tool and HTTP Protocol
 
-### Apache Web Server Testing
+I used Wireshark to monitor browser activity and filter HTTP traffic. I was able to capture the HTTP request and response headers and analyze the HTTP stream.
 
-![Apache Web Server in my Ubuntu VM](../../images/2.jpeg)
+### Task 2: Understanding HTTP using Telnet and Wireshark
 
-![Apache Web Server in my laptop browser](../../images/1.jpeg)
+I used the telnet command to send an HTTP GET request to a server manually. Wireshark was used to capture and inspect these messages.
 
-## Part 2 - git Repositories and Exercises
+#### Summary:
 
-I created a private GitHub repository named waph-mahitha and shared it with the instructor by adding waph-phung as a collaborator. The repository is available at
+The telnet session displayed a manual HTTP request and the server's response.
 
-### The course repository
+Compared to browser-generated requests, telnet requests were minimal and lacked headers like User-Agent.
+
+The response message lacked formatting compared to browser responses.
+
+## Part 2 - Basic Web Application Programming
+
+### Task 1: CGI Web Applications in C
+
+### a. Hello World Program
+
+I wrote a simple C program that prints HTTP headers and a message. Compiled using gcc and placed in the cgi-bin directory.
+
+### b. HTML Template with CGI
+
+Created another C CGI program that outputs HTML content. I embedded the output in a basic HTML template.
+
+### Task 2: A Simple PHP Web Application with User Input
+
+### a. Hello World in PHP
+
+Created a helloworld.php file that shows my name and PHP info using phpinfo().
+
+### b. Echo Web Application
+
+Developed echo.php that captures user input using GET and POST methods. This application echoes the submitted data.
 
 Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
 
-![Course Repository](../../images/3.jpeg)
+### Task 3: Understanding HTTP GET and POST Requests
 
-### Private Repository
+### a. Wireshark GET Analysis
 
-To enable secure access, I generated an SSH key pair on my Ubuntu VM and added the public key to my GitHub account. This allowed me to clone the repository via SSH without needing a password.
+Used Wireshark to capture and analyze the GET request/response for echo.php.
 
-After cloning, I created the labs/lab0/ directory, added the lab report in README.md, and included my headshot image using a relative path. I then committed the changes and pushed them to GitHub.
+### b. curl POST Request
 
-Below is a screenshot showing the successful git commit and git push from my VM:
+Used curl -d "name=Mahitha" http://localhost/echo.php to send a POST request.
 
-![Changes Commited](../../images/4.jpeg)
+### c. Comparison
+
 
 
 
