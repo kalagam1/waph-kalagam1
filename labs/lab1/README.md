@@ -42,6 +42,12 @@ Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/
 
 I used Wireshark to monitor browser activity and filter HTTP traffic. I was able to capture the HTTP request and response headers and analyze the HTTP stream.
 
+![Wireshark HTTP requtest for index.html](../../images/1.1.jpeg)
+
+![Following the HTTP stream](../../images/1.2.jpeg)
+
+![HTTP Stream](../../images/1.3.jpeg)
+
 ### Task 2: Understanding HTTP using Telnet and Wireshark
 
 I used the telnet command to send an HTTP GET request to a server manually. Wireshark was used to capture and inspect these messages.
