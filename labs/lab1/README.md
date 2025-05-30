@@ -76,8 +76,6 @@ Created a helloworld.php file that shows my name and PHP info using phpinfo().
 
 Developed echo.php that captures user input using GET and POST methods. This application echoes the submitted data.
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
-
 ### Task 3: Understanding HTTP GET and POST Requests
 
 ### a. Wireshark GET Analysis
