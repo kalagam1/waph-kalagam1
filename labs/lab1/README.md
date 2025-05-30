@@ -121,9 +121,15 @@ Next, I wrote another C CGI program that outputs valid HTML. I used a simple tem
 
 Created a helloworld.php file that shows my name and PHP info using phpinfo().
 
+#### Hello World in PHP 
+![Hello World in PHP](../../images/2.2.1.jpeg)
+
 ### b. Echo Web Application
 
 Developed echo.php that captures user input using GET and POST methods. This application echoes the submitted data.
+
+#### Hello World in echo.php  
+![Hello World in echo.php](../../images/2.2.2.jpeg)
 
 ### Task 3: Understanding HTTP GET and POST Requests
 
