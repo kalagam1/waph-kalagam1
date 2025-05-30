@@ -42,11 +42,11 @@ Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/
 
 I used Wireshark to monitor browser activity and filter HTTP traffic. I was able to capture the HTTP request and response headers and analyze the HTTP stream.
 
-![Wireshark HTTP requtest for index.html](../../images/1.1.jpeg) Wireshark HTTP requtest for index.html
+Wireshark HTTP requtest for index.html ![Wireshark HTTP requtest for index.html](../../images/1.1.jpeg) 
 
-![Following the HTTP stream](../../images/1.2.jpeg) Following the HTTP stream
+Following the HTTP stream ![Following the HTTP stream](../../images/1.2.jpeg)
 
-![HTTP Stream](../../images/1.3.jpeg)
+HTTP Stream ![HTTP Stream](../../images/1.3.jpeg)
 
 ### Task 2: Understanding HTTP using Telnet and Wireshark
 
@@ -60,11 +60,11 @@ Compared to browser-generated requests, telnet requests were minimal and lacked 
 
 The response message lacked formatting compared to browser responses.
 
-![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
+Terminal showing HTTP request and response ![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
 
  - This shows that the GET request and the HTTP request 200 OK response with the HTML content from the server. 
 
-![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
+HTTP request message in Wireshark ![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
 
 Comparison with browser-based request:
 
@@ -75,9 +75,9 @@ Comparison with browser-based request:
   - Accept-Encoding
   - Connection
 
- - It only includes GET / HTTP/1.1 and Host.
+It only includes GET / HTTP/1.1 and Host.
 
-![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
+HTTP response message in Wireshark ![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
 
 Comparison with Task 1 response:
 
