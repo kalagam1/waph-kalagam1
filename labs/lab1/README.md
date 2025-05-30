@@ -42,9 +42,9 @@ Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/
 
 I used Wireshark to monitor browser activity and filter HTTP traffic. I was able to capture the HTTP request and response headers and analyze the HTTP stream.
 
-![Wireshark HTTP requtest for index.html](../../images/1.1.jpeg)
+![Wireshark HTTP requtest for index.html](../../images/1.1.jpeg) Wireshark HTTP requtest for index.html
 
-![Following the HTTP stream](../../images/1.2.jpeg)
+![Following the HTTP stream](../../images/1.2.jpeg) Following the HTTP stream
 
 ![HTTP Stream](../../images/1.3.jpeg)
 
