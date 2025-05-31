@@ -22,6 +22,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 - [Lab 0](labs/lab0): Development Environment Setup
 - [Lab 1](labs/lab1): Foundations of the Web
+- [Lab 2](labs/lab2): Front-end Web Development
 
 ## Report
 
@@ -34,7 +35,7 @@ This lab focused on understanding how the web works, specifically the HTTP proto
  - Writing and deploying CGI programs in C.
  - Developing simple PHP applications that handle GET and POST requests.
 
-Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab1)
+Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab2)
 
 ## Part 1 - The Web and HTTP Protocol
 
