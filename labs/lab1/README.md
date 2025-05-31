@@ -142,7 +142,7 @@ Used Wireshark to capture and analyze the GET request/response for echo.php.
 
 ### b. curl POST Request
 
-Used curl -d "name=Mahitha" http://localhost/echo.php to send a POST request.
+Used curl -d "data= Hello World from Mahitha Kalaga" http://localhost/echo.php to send a POST request.
 
 #### echo.php page POST request  
 ![echo.php page POST request](../../images/2.3.2.jpeg)
