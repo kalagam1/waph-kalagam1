@@ -35,7 +35,7 @@ This lab focused on understanding how the web works, specifically the HTTP proto
  - Writing and deploying CGI programs in C.
  - Developing simple PHP applications that handle GET and POST requests.
 
-Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab2)
+Lab's URL: [Lab2](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab2)
 
 ## Part 1 - The Web and HTTP Protocol
 
