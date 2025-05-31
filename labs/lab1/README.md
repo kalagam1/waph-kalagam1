@@ -42,8 +42,7 @@ Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/
 
 To understand how the HTTP protocol operates, I used Wireshark to capture and inspect traffic between my browser and a web server. I filtered packets using the keyword http and observed both HTTP Request and Response messages. This allowed me to identify the structure of HTTP messages, including headers, status codes, and content.
 
-#### Wireshark HTTP request for index.html 
-![Wireshark HTTP request for index.html](../../images/1.1.1.jpeg) 
+ Wireshark HTTP request for index.html  ![Wireshark HTTP request for index.html](../../images/1.1.1.jpeg) 
 
  - This shows the request sent by the browser to example.com, including headers like Host, User-Agent, and Accept.
 
