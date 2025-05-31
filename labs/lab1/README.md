@@ -48,11 +48,13 @@ To understand how the HTTP protocol operates, I used Wireshark to capture and in
  - This shows the request sent by the browser to example.com, including headers like Host, User-Agent, and Accept.
 
 #### Wireshark HTTP response for index.html
+
 ![Wireshark HTTP response for index.html](../../images/1.1.2.jpeg)
 
  - This contains the server’s response, with headers such as Content-Type, Content-Length, and the actual HTML content of the page.
 
 #### HTTP Stream 
+
 ![HTTP Stream](../../images/1.1.3.jpeg)
 
  - This shows the full conversation between client and server.
@@ -68,11 +70,13 @@ I used the telnet command to send an HTTP GET request to a server manually. Wire
  - The response message lacked formatting compared to browser responses.
 
 #### Terminal showing HTTP request and response 
+
 ![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
 
  - This shows that the GET request and the HTTP request 200 OK response with the HTML content from the server. 
 
 #### HTTP request message in Wireshark 
+
 ![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
 
 Comparison with browser-based request:
@@ -87,6 +91,7 @@ Comparison with browser-based request:
 It only includes GET / HTTP/1.1 and Host.
 
 #### HTTP response message in Wireshark 
+
 ![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
 
 Comparison with Task 1 response:
@@ -104,6 +109,7 @@ Comparison with Task 1 response:
 I wrote a simple C program to demonstrate a CGI web application. The code prints a basic HTTP header and a "Hello World" message. I compiled it using gcc and placed the executable in /usr/lib/cgi-bin/, which is the default CGI directory in Apache.
 
 #### Hello World CGI in C  
+
 ![Hello World CGI in C](../../images/2.1.1.jpeg)
 
 ### b. HTML Template with CGI
@@ -113,6 +119,7 @@ I wrote a simple C program to demonstrate a CGI web application. The code prints
 Next, I wrote another C CGI program that outputs valid HTML. I used a simple template from W3Schools, modified with my course and personal information.
 
 #### Hello World CGI in C  
+
 ![Hello World CGI in C](../../images/2.1.2.jpeg)
 
 ### Task 2: A Simple PHP Web Application with User Input
@@ -122,6 +129,7 @@ Next, I wrote another C CGI program that outputs valid HTML. I used a simple tem
 Created a helloworld.php file that shows my name and PHP info using phpinfo().
 
 #### Hello World in PHP 
+
 ![Hello World in PHP](../../images/2.2.1.jpeg)
 
 ### b. Echo Web Application
@@ -129,6 +137,7 @@ Created a helloworld.php file that shows my name and PHP info using phpinfo().
 Developed echo.php that captures user input using GET and POST methods. This application echoes the submitted data.
 
 #### Hello World in echo.php  
+
 ![Hello World in echo.php](../../images/2.2.2.jpeg)
 
 ### Task 3: Understanding HTTP GET and POST Requests
@@ -138,13 +147,15 @@ Developed echo.php that captures user input using GET and POST methods. This app
 Used Wireshark to capture and analyze the GET request/response for echo.php.
 
 #### HTTP GET request and response
+
 ![HTTP GET request and response](../../images/2.3.1.jpeg)
 
 ### b. curl POST Request
 
 Used curl -d "data= Hello World, from Mahitha Kalaga" http://localhost/echo.php to send a POST request.
 
-#### echo.php page POST request  
+#### echo.php page POST request 
+
 ![echo.php page POST request](../../images/2.3.2.jpeg)
 
 ### c. Comparison
