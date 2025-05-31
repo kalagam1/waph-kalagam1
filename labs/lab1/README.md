@@ -142,13 +142,14 @@ Used Wireshark to capture and analyze the GET request/response for echo.php.
 
 ### b. curl POST Request
 
-Used curl -d "data= Hello World from Mahitha Kalaga" http://localhost/echo.php to send a POST request.
+Used curl -d "data= Hello World, from Mahitha Kalaga" http://localhost/echo.php to send a POST request.
 
 #### echo.php page POST request  
 ![echo.php page POST request](../../images/2.3.2.jpeg)
 
 ### c. Comparison
 
+With HTTP GET, the data (Hello World, from Mahitha Kalaga) sent are placed as query parameters into the URL, thereby making the data not only visible to the browser but also show up in the server log. Compared to this, POST requests send data in the request body, which cannot be viewed from the URL and is therefore much more secure. Additionally, GET requests are generally used for retrieving resources and are cached, whereas POST requests are sent for data and are not cached. Whereas the GET response was shorter and faster.
 
 
 
