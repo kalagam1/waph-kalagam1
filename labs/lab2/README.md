@@ -42,7 +42,9 @@ Created waph-mahitha.html with proper HTML tags. Included:
 
 #### Basic HTML waph-mahitha.html 
 ![Basic HTML waph-mahitha.html](../../images/2.1.a.a.jpeg) 
+
 ![Basic HTML waph-mahitha.html](../../images/2.1.a.jpeg) 
+
 ![Basic HTML waph-mahitha.html](../../images/2.1.a.a.a.jpeg)
 
 ### Task 1.B.i: Inline JavaScript
@@ -51,6 +53,7 @@ For the inline JavaScript task, I added an onclick event to a button that, when 
 
 #### Inline JavaScript
 ![Inline JavaScript](../../images/2.1.b.2.jpeg)
+
 ![Inline JavaScript](../../images/2.1.b.2.1.jpeg)
 
 ### Task 1.B.ii: Digital Clock 
@@ -59,7 +62,9 @@ Using setInterval() and JavaScript's Date() object, I created a live digital clo
 
 #### Digital Clock
 ![Digital Clock](../../images/2.1.b.jpeg)
+
 ![Digital Clock](../../images/2.1.b.b.jpeg)
+
 ![Digital Clock](../../images/2.1.b.b.b.jpeg)
 
 ### Task 1.B.iii: Show/Hide Email
@@ -68,7 +73,9 @@ Created a reusable and modular JavaScript file (email.js) that dynamically toggl
 
 #### Show/Hide Email
 ![Show/Hide Email](../../images/2.1.c.jpeg)
+
 ![Show/Hide Email](../../images/2.1.c.c.jpeg)
+
 ![Show/Hide Email](../../images/2.1.c.c.c.jpeg)
 
 ### Task 1.B.iv: Analog Clock
@@ -77,6 +84,7 @@ Added an analog clock using a <canvas> element and the external script hosted at
 
 #### Analog Clock
 ![Analog Clock](../../images/2.1.d.jpeg)
+
 ![Analog Clock](../../images/2.1.d.d.jpeg)
 
 ### Task 2: Ajax, CSS, jQuery, and Web API Integration
@@ -87,6 +95,7 @@ Implemented a form-driven Ajax request using XMLHttpRequest to send user input t
 
 #### Ajax
 ![Ajax](../../images/2.2.a.jpeg)
+
 ![Ajax](../../images/2.2.a.a.jpeg)
 
 ### Task 2.B: CSS  
@@ -98,6 +107,7 @@ Demonstrated an understanding of different CSS application methods:
 
 #### CSS 
 ![CSS](../../images/2.2.b.jpeg)
+
 ![CSS](../../images/2.2.b.b.jpeg)
 
 ### Task 2.C: jQuery   
@@ -106,10 +116,12 @@ Included the jQuery library via CDN and developed Ajax functions using both $get
 
 #### jQuery  
 ![jQuery](../../images/2.2.c.1.jpeg)
+
 ![jQuery](../../images/2.2.c.c.1.jpeg)
 
 #### jQuery  
 ![jQuery](../../images/2.2.c.2.jpeg)
+
 ![jQuery](../../images/2.2.c.c.2.jpeg)
 
 ### Task 2.D: Web API Integration  
@@ -120,6 +132,7 @@ Used jQuery to fetch a random programming joke from https:/v2.jokeapi.dev/joke/P
 
 #### Joke API 
 ![Joke API](../../images/2.2.d.i.jpeg)
+
 ![Joke API](../../images/2.2.d.d.1.jpeg)
 
  - ii. Agify API with fetch()
@@ -128,6 +141,7 @@ Used JavaScripts modern fetch() API to retrieve age prediction data from https:/
 
 #### Agify API with fetch()
 ![Agify API with fetch()](../../images/2.2.d.2.jpeg)
+
 ![Agify API with fetch()](../../images/2.2.d.d.2.jpeg)
 
 
