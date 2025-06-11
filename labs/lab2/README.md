@@ -28,122 +28,100 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 ## The lab's overview
 
-This lab focused on understanding how the web works, specifically the HTTP protocol, and creating basic web applications using CGI in C and PHP. The main outcomes included:
-
- - Capturing and analyzing HTTP traffic with Wireshark.
- - Sending HTTP requests using telnet.
- - Writing and deploying CGI programs in C.
- - Developing simple PHP applications that handle GET and POST requests.
+This lab focused on core front-end web development techniques using HTML, CSS, JavaScript, Ajax, jQuery, and Web API integration. The tasks reinforced lecture materials from weeks 4 to 6 and were implemented using a local Apache server. Through this lab, I gained experience in dynamic page updates, asynchronous requests, real-time clocks, and integrating third-party APIs into web interfaces.
 
 Lab's URL: [Lab2](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab2)
 
-## Part 1 - The Web and HTTP Protocol
+## Part 1 - Basic HTML with Forms, and JavaScript
 
-### Task 1: Familiar with the Wireshark Tool and HTTP Protocol
+### Task 1.A: A Basic HTML 
 
-To understand how the HTTP protocol operates, I used Wireshark to capture and inspect traffic between my browser and a web server. I filtered packets using the keyword http and observed both HTTP Request and Response messages. This allowed me to identify the structure of HTTP messages, including headers, status codes, and content.
+Created waph-mahitha.html with proper HTML tags. Included:
+ - Headshot image (150x150 pixels)
+ - A simple form with <input> and <submit> tags
 
-#### Wireshark HTTP request for index.html 
-![Wireshark HTTP request for index.html](../../images/1.1.1.jpeg) 
+#### Basic HTML waph-mahitha.html 
+![Basic HTML waph-mahitha.html](../../images/2.1.a.a.jpeg) 
+![Basic HTML waph-mahitha.html](../../images/2.1.a.jpeg) 
+![Basic HTML waph-mahitha.html](../../images/2.1.a.a.a.jpeg)
 
- - This shows the request sent by the browser to example.com, including headers like Host, User-Agent, and Accept.
+### Task 1.B.i: Inline JavaScript
 
-#### Wireshark HTTP response for index.html
-![Wireshark HTTP response for index.html](../../images/1.1.2.jpeg)
+For the inline JavaScript task, I added an onclick event to a button that, when clicked, displays the current date and time. I also used the onkeypress attribute in a text input to log what keys were pressed to the browser console. 
 
- - This contains the server’s response, with headers such as Content-Type, Content-Length, and the actual HTML content of the page.
+#### Inline JavaScript
+![Inline JavaScript](../../images/1.1.2.jpeg)
+![Inline JavaScript](../../images/1.1.2.jpeg)
 
-#### HTTP Stream 
-![HTTP Stream](../../images/1.1.3.jpeg)
+### Task 1.B.ii: Digital Clock 
 
- - This shows the full conversation between client and server.
+Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM:SS format. This was written inside a <script> tag and directly manipulated the inner content of a <div>. 
 
-### Task 2: Understanding HTTP using Telnet and Wireshark
+#### Digital Clock
+![Digital Clock](../../images/1.1.3.jpeg)
+![Digital Clock](../../images/1.1.3.jpeg)
 
-I used the telnet command to send an HTTP GET request to a server manually. Wireshark was used to capture and inspect these messages.
+### Task 1.B.iii: Show/Hide Email
 
-#### Summary:
+Created a reusable and modular JavaScript file (email.js) that dynamically toggles the visibility of my email address. When the user clicks a div, the content switches between a label and a mailto: hyperlink. This component demonstrates external JS integration, conditional logic, and DOM element replacement.
 
- - The telnet session displayed a manual HTTP request and the server's response.
- - Compared to browser-generated requests, telnet requests were minimal and lacked headers like User-Agent.
- - The response message lacked formatting compared to browser responses.
+#### Show/Hide Email
+![Show/Hide Email](../../images/1.1.3.jpeg)
+![Show/Hide Email](../../images/1.1.3.jpeg)
 
-#### Terminal showing HTTP request and response 
-![Terminal showing HTTP request and response](../../images/1.2.1.jpeg)
+### Task 1.B.iv: Analog Clock
 
- - This shows that the GET request and the HTTP request 200 OK response with the HTML content from the server. 
+Added an analog clock using a <canvas> element and the external script hosted at https://waph-phung.github.io/clock.js. The script draws clock hands in real time using canvas rendering.
 
-#### HTTP request message in Wireshark 
-![HTTP request message in Wireshark](../../images/1.2.2.jpeg)
+#### Analog Clock
+![Analog Clock](../../images/1.1.3.jpeg)
+![Analog Clock](../../images/1.1.3.jpeg)
 
-Comparison with browser-based request:
+### Task 2: Ajax, CSS, jQuery, and Web API Integration
 
- - The telnet request is simpler and lacks headers like:
+### Task 2.A: Ajax 
 
-  - User-Agent
-  - Accept
-  - Accept-Encoding
-  - Connection
+Implemented a form-driven Ajax request using XMLHttpRequest to send user input to echo.php. The server's response is retrieved and rendered within a target <div> element. By monitoring the request through browser developer tools, I gained insight into asynchronous communication and HTTP request/response lifecycles.
 
-It only includes GET / HTTP/1.1 and Host.
+#### Ajax
+![Ajax](../../images/1.1.3.jpeg)
+![Ajax](../../images/1.1.3.jpeg)
 
-#### HTTP response message in Wireshark 
-![HTTP response message in Wireshark](../../images/1.2.3.jpeg)
+### Task 2.B: CSS  
 
-Comparison with Task 1 response:
+Demonstrated an understanding of different CSS application methods:
+ - Inline CSS was used directly within HTML tags for quick styling.
+ - Internal CSS was defined within a <style> block in the <head> for layout consistency.
+ - External CSS was applied by linking to a remote stylesheet (https://waph-phung.github.io/style3.css).
 
- - The content is the same, but some headers like Content-Encoding, ETag,  may vary depending on how the request was formed telnet vs browser.
+#### CSS 
+![CSS](../../images/1.1.3.jpeg)
+![CSS](../../images/1.1.3.jpeg)
 
-## Part 2 - Basic Web Application Programming
+### Task 2.C: jQuery   
 
-### Task 1: CGI Web Applications in C
+Included the jQuery library via CDN and developed Ajax functions using both $.get() and $.post() methods to interact with the echo.php endpoint. The responses were dynamically injected into the DOM. 
 
-### a. Hello World Program
+#### jQuery  
+![jQuery](../../images/1.1.3.jpeg)
+![jQuery](../../images/1.1.3.jpeg)
 
-#### Summary:
+### Task 2.D: Web API Integration  
 
-I wrote a simple C program to demonstrate a CGI web application. The code prints a basic HTTP header and a "Hello World" message. I compiled it using gcc and placed the executable in /usr/lib/cgi-bin/, which is the default CGI directory in Apache.
+ - i. Joke API
 
-#### Hello World CGI in C  
-![Hello World CGI in C](../../images/2.1.1.jpeg)
+Used jQuery to fetch a random programming joke from https://v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a <div> element. This integration demonstrated the practical use of external APIs to enhance user engagement.
 
-### b. HTML Template with CGI
+#### Joke API 
+![Joke API](../../images/1.1.3.jpeg)
+![Joke API](../../images/1.1.3.jpeg)
 
-#### Summary:
+ - ii. Agify API with fetch()
 
-Next, I wrote another C CGI program that outputs valid HTML. I used a simple template from W3Schools, modified with my course and personal information.
+Used JavaScript's modern fetch() API to retrieve age prediction data from https://api.agify.io/?name=... based on user input. The results were processed asynchronously and rendered within the page, providing a hands-on example of modern JavaScript promises and external API interaction.
 
-#### Hello World CGI in C  
-![Hello World CGI in C](../../images/2.1.2.jpeg)
-
-### Task 2: A Simple PHP Web Application with User Input
-
-### a. Hello World in PHP
-
-Created a helloworld.php file that shows my name and PHP info using phpinfo().
-
-#### Hello World in PHP 
-![Hello World in PHP](../../images/2.2.1.jpeg)
-
-### b. Echo Web Application
-
-Developed echo.php that captures user input using GET and POST methods. This application echoes the submitted data.
-
-#### Hello World in echo.php  
-![Hello World in echo.php](../../images/2.2.2.jpeg)
-
-### Task 3: Understanding HTTP GET and POST Requests
-
-### a. Wireshark GET Analysis
-
-Used Wireshark to capture and analyze the GET request/response for echo.php.
-
-### b. curl POST Request
-
-Used curl -d "name=Mahitha" http://localhost/echo.php to send a POST request.
-
-### c. Comparison
-
-
+#### Agify API with fetch()
+![Agify API with fetch()](../../images/1.1.3.jpeg)
+![Agify API with fetch()](../../images/1.1.3.jpeg)
 
 
