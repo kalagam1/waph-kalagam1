@@ -58,24 +58,26 @@ For the inline JavaScript task, I added an onclick event to a button that, when 
 Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM:SS format. This was written inside a <script> tag and directly manipulated the inner content of a <div>. 
 
 #### Digital Clock
-![Digital Clock](../../images/1.1.3.jpeg)
-![Digital Clock](../../images/1.1.3.jpeg)
+![Digital Clock](../../images/2.1.b.jpeg)
+![Digital Clock](../../images/2.1.b.b.jpeg)
+![Digital Clock](../../images/2.1.b.b.b.jpeg)
 
 ### Task 1.B.iii: Show/Hide Email
 
 Created a reusable and modular JavaScript file (email.js) that dynamically toggles the visibility of my email address. When the user clicks a div, the content switches between a label and a mailto: hyperlink. This component demonstrates external JS integration, conditional logic, and DOM element replacement.
 
 #### Show/Hide Email
-![Show/Hide Email](../../images/1.1.3.jpeg)
-![Show/Hide Email](../../images/1.1.3.jpeg)
+![Show/Hide Email](../../images/2.1.c.jpeg)
+![Show/Hide Email](../../images/2.1.c.c.jpeg)
+![Show/Hide Email](../../images/2.1.c.c.c.jpeg)
 
 ### Task 1.B.iv: Analog Clock
 
 Added an analog clock using a <canvas> element and the external script hosted at https://waph-phung.github.io/clock.js. The script draws clock hands in real time using canvas rendering.
 
 #### Analog Clock
-![Analog Clock](../../images/1.1.3.jpeg)
-![Analog Clock](../../images/1.1.3.jpeg)
+![Analog Clock](../../images/2.1.d.jpeg)
+![Analog Clock](../../images/2.1.d.d.jpeg)
 
 ### Task 2: Ajax, CSS, jQuery, and Web API Integration
 
@@ -84,8 +86,8 @@ Added an analog clock using a <canvas> element and the external script hosted at
 Implemented a form-driven Ajax request using XMLHttpRequest to send user input to echo.php. The server's response is retrieved and rendered within a target <div> element. By monitoring the request through browser developer tools, I gained insight into asynchronous communication and HTTP request/response lifecycles.
 
 #### Ajax
-![Ajax](../../images/1.1.3.jpeg)
-![Ajax](../../images/1.1.3.jpeg)
+![Ajax](../../images/2.2.a.jpeg)
+![Ajax](../../images/2.2.a.a.jpeg)
 
 ### Task 2.B: CSS  
 
@@ -95,16 +97,20 @@ Demonstrated an understanding of different CSS application methods:
  - External CSS was applied by linking to a remote stylesheet (https://waph-phung.github.io/style3.css).
 
 #### CSS 
-![CSS](../../images/1.1.3.jpeg)
-![CSS](../../images/1.1.3.jpeg)
+![CSS](../../images/2.2.b.jpeg)
+![CSS](../../images/2.2.b.b.jpeg)
 
 ### Task 2.C: jQuery   
 
 Included the jQuery library via CDN and developed Ajax functions using both $.get() and $.post() methods to interact with the echo.php endpoint. The responses were dynamically injected into the DOM. 
 
 #### jQuery  
-![jQuery](../../images/1.1.3.jpeg)
-![jQuery](../../images/1.1.3.jpeg)
+![jQuery](../../images/2.2.c.1.jpeg)
+![jQuery](../../images/2.2.c.c.1.jpeg)
+
+#### jQuery  
+![jQuery](../../images/2.2.c.2.jpeg)
+![jQuery](../../images/2.2.c.c.2.jpeg)
 
 ### Task 2.D: Web API Integration  
 
