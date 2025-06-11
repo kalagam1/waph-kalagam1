@@ -102,7 +102,7 @@ Demonstrated an understanding of different CSS application methods:
 
 ### Task 2.C: jQuery   
 
-Included the jQuery library via CDN and developed Ajax functions using both $.get() and $.post() methods to interact with the echo.php endpoint. The responses were dynamically injected into the DOM. 
+Included the jQuery library via CDN and developed Ajax functions using both $get() and $post() methods to interact with the echo.php endpoint. The responses were dynamically injected into the DOM. 
 
 #### jQuery  
 ![jQuery](../../images/2.2.c.1.jpeg)
