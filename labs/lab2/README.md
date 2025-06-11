@@ -55,7 +55,7 @@ For the inline JavaScript task, I added an onclick event to a button that, when 
 
 ### Task 1.B.ii: Digital Clock 
 
-Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM:SS format. This was written inside a <script> tag and directly manipulated the inner content of a <div>. 
+Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM;SS format. This was written inside a <script> tag and directly manipulated the inner content of a <div>. 
 
 #### Digital Clock
 ![Digital Clock](../../images/2.1.b.jpeg)
