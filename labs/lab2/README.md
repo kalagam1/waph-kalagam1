@@ -116,7 +116,7 @@ Included the jQuery library via CDN and developed Ajax functions using both $get
 
  - i. Joke API
 
-Used jQuery to fetch a random programming joke from https:/v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a <div> element. This integration demonstrated the practical use of external APIs to enhance user engagement.
+Used jQuery to fetch a random programming joke from https:/v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a div element. This integration demonstrated the practical use of external APIs to enhance user engagement.
 
 #### Joke API 
 ![Joke API](../../images/2.2.d.1.jpeg)
