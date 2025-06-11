@@ -50,8 +50,8 @@ Created waph-mahitha.html with proper HTML tags. Included:
 For the inline JavaScript task, I added an onclick event to a button that, when clicked, displays the current date and time. I also used the onkeypress attribute in a text input to log what keys were pressed to the browser console. 
 
 #### Inline JavaScript
-![Inline JavaScript](../../images/1.1.2.jpeg)
-![Inline JavaScript](../../images/1.1.2.jpeg)
+![Inline JavaScript](../../images/2.1.b.2.jpeg)
+![Inline JavaScript](../../images/2.1.b.2.1.jpeg)
 
 ### Task 1.B.ii: Digital Clock 
 
@@ -113,15 +113,15 @@ Included the jQuery library via CDN and developed Ajax functions using both $.ge
 Used jQuery to fetch a random programming joke from https://v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a <div> element. This integration demonstrated the practical use of external APIs to enhance user engagement.
 
 #### Joke API 
-![Joke API](../../images/1.1.3.jpeg)
-![Joke API](../../images/1.1.3.jpeg)
+![Joke API](../../images/2.2.d.1.jpeg)
+![Joke API](../../images/2.2.d.d.1.jpeg)
 
  - ii. Agify API with fetch()
 
 Used JavaScript's modern fetch() API to retrieve age prediction data from https://api.agify.io/?name=... based on user input. The results were processed asynchronously and rendered within the page, providing a hands-on example of modern JavaScript promises and external API interaction.
 
 #### Agify API with fetch()
-![Agify API with fetch()](../../images/1.1.3.jpeg)
-![Agify API with fetch()](../../images/1.1.3.jpeg)
+![Agify API with fetch()](../../images/2.2.d.2.jpeg)
+![Agify API with fetch()](../../images/2.2.d.d.2.jpeg)
 
 
