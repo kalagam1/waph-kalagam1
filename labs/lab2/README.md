@@ -38,7 +38,7 @@ Lab's URL: [Lab2](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/
 
 Created waph-mahitha.html with proper HTML tags. Included:
  - Headshot image (150x150 pixels)
- - A simple form with <input> and <submit> tags
+ - A simple form with "<input>" and "<submit>" tags
 
 #### Basic HTML waph-mahitha.html 
 ![Basic HTML waph-mahitha.html](../../images/2.1.a.a.jpeg) 
@@ -55,7 +55,7 @@ For the inline JavaScript task, I added an onclick event to a button that, when 
 
 ### Task 1.B.ii: Digital Clock 
 
-Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM:SS format. This was written inside a <script> tag and directly manipulated the inner content of a <div>. 
+Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM:SS format. This was written inside a <script> tag and directly manipulated the inner content of a "<div>". 
 
 #### Digital Clock
 ![Digital Clock](../../images/2.1.b.jpeg)
@@ -73,7 +73,7 @@ Created a reusable and modular JavaScript file (email.js) that dynamically toggl
 
 ### Task 1.B.iv: Analog Clock
 
-Added an analog clock using a <canvas> element and the external script hosted at https://waph-phung.github.io/clock.js. The script draws clock hands in real time using canvas rendering.
+Added an analog clock using a <canvas> element and the external script hosted at https:/waph-phung.github.io/clock.js. The script draws clock hands in real time using canvas rendering.
 
 #### Analog Clock
 ![Analog Clock](../../images/2.1.d.jpeg)
@@ -83,7 +83,7 @@ Added an analog clock using a <canvas> element and the external script hosted at
 
 ### Task 2.A: Ajax 
 
-Implemented a form-driven Ajax request using XMLHttpRequest to send user input to echo.php. The server's response is retrieved and rendered within a target <div> element. By monitoring the request through browser developer tools, I gained insight into asynchronous communication and HTTP request/response lifecycles.
+Implemented a form-driven Ajax request using XMLHttpRequest to send user input to echo.php. The servers response is retrieved and rendered within a target div element. By monitoring the request through browser developer tools, I gained insight into asynchronous communication and HTTP request/response lifecycles.
 
 #### Ajax
 ![Ajax](../../images/2.2.a.jpeg)
@@ -94,7 +94,7 @@ Implemented a form-driven Ajax request using XMLHttpRequest to send user input t
 Demonstrated an understanding of different CSS application methods:
  - Inline CSS was used directly within HTML tags for quick styling.
  - Internal CSS was defined within a <style> block in the <head> for layout consistency.
- - External CSS was applied by linking to a remote stylesheet (https://waph-phung.github.io/style3.css).
+ - External CSS was applied by linking to a remote stylesheet (https:/waph-phung.github.io/style3.css).
 
 #### CSS 
 ![CSS](../../images/2.2.b.jpeg)
@@ -116,7 +116,7 @@ Included the jQuery library via CDN and developed Ajax functions using both $.ge
 
  - i. Joke API
 
-Used jQuery to fetch a random programming joke from https://v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a <div> element. This integration demonstrated the practical use of external APIs to enhance user engagement.
+Used jQuery to fetch a random programming joke from https:/v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a <div> element. This integration demonstrated the practical use of external APIs to enhance user engagement.
 
 #### Joke API 
 ![Joke API](../../images/2.2.d.1.jpeg)
@@ -124,7 +124,7 @@ Used jQuery to fetch a random programming joke from https://v2.jokeapi.dev/joke/
 
  - ii. Agify API with fetch()
 
-Used JavaScript's modern fetch() API to retrieve age prediction data from https://api.agify.io/?name=... based on user input. The results were processed asynchronously and rendered within the page, providing a hands-on example of modern JavaScript promises and external API interaction.
+Used JavaScripts modern fetch() API to retrieve age prediction data from https:/api.agify.io/?name=... based on user input. The results were processed asynchronously and rendered within the page, providing a hands-on example of modern JavaScript promises and external API interaction.
 
 #### Agify API with fetch()
 ![Agify API with fetch()](../../images/2.2.d.2.jpeg)
