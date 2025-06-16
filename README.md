@@ -31,7 +31,7 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 ### Hackations
 
-Hands-on hacking excercises
+- [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
 
 ### Individual  Projects
 
