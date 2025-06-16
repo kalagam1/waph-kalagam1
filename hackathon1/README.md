@@ -8,7 +8,7 @@
 
 **Email**: [kalagam1@udayton.edu](kalagam1@udayton.edu)
 
-![Mahitha's headshot](images/mahi.jpeg)
+![Mahitha's headshot](/images/mahi.jpeg)
 
 ## Repository Information
 
