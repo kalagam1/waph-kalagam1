@@ -28,7 +28,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 ## The Hackathon's overview
 
-This lab focused on core front-end web development techniques using HTML, CSS, JavaScript, Ajax, jQuery, and Web API integration. The tasks reinforced lecture materials from weeks 4 to 6 and were implemented using a local Apache server. Through this lab, I gained experience in dynamic page updates, asynchronous requests, real-time clocks, and integrating third-party APIs into web interfaces.
+This hackathon focused on identifying and exploiting reflected Cross-Site Scripting (XSS) vulnerabilities through a series of hands-on web security exercises. Covered in Lectures 7 and 8, the hackathon included two tasks: performing XSS attacks across seven levels of increasing difficulty, and implementing proper defenses in insecure web applications from Lab 1 and Lab 2.
 
 Hackathon's URL: [Hackathon](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/hackathon1)
 
@@ -38,7 +38,7 @@ In this task, I performed reflected XSS attacks on levels 0 to 6 by injecting cu
 
 ### Level 0: 
 
-I injected a basic <script>alert('Level 0: Hacked by Mahitha Kalaga')script payload. Since there was no input filtering, the alert executed successfully.
+I injected a basic scriptalert('Level 0: Hacked by Mahitha Kalaga')script payload. Since there was no input filtering, the alert executed successfully.
 
 ![level 0](/images/level0.jpeg)
 
@@ -46,7 +46,7 @@ I injected a basic <script>alert('Level 0: Hacked by Mahitha Kalaga')script payl
 
 ### Level 1: 
 
-The input was reflected inside an attribute, so I broke out using "><script>...</script>. This triggered the alert, proving the vulnerability exists in unescaped attribute context.
+The input was reflected inside an attribute, so I broke out using "script.../script. This triggered the alert, proving the vulnerability exists in unescaped attribute context.
 
 ![level 1](/images/level1.jpeg)
 
@@ -73,7 +73,7 @@ The script tag was filtered, so I used img src=x onerror=... to trigger JavaScri
 
 ### Level 4: 
 
-I used the <details> HTML tag with the ontoggle event to trigger the alert. The payload successfully executed and displayed the message “Level 4: Hacked by Mahitha Kalaga”. This confirms the application only filters specific tags like <script> but still allows dangerous event attributes.
+I used the details HTML tag with the ontoggle event to trigger the alert. The payload successfully executed and displayed the message “Level 4: Hacked by Mahitha Kalaga”. This confirms the application only filters specific tags like <script> but still allows dangerous event attributes.
 
   - Payload: details open ontoggle="alert('Level 4: Hacked by Mahitha Kalaga')"
   - Code Guess: echo str_ireplace("<script>", "", $_GET["input"]);
