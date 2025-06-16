@@ -46,13 +46,13 @@ I injected a basic <script>alert('Level 0: Hacked by Mahitha Kalaga')script payl
 
 ### Level 1: 
 
-
+The input was reflected inside an attribute, so I broke out using "><script>...</script>. This triggered the alert, proving the vulnerability exists in unescaped attribute context.
 
 ![level 1](/images/level1.jpeg)
 
 ### Level 2: 
 
-The input was submitted via POST by creating level.html, and the server echoed it without filtering. Using a standard <script> payload in the form triggered the alert, showing direct use of $_POST["input"].
+The input was submitted via POST by creating level.html, and the server echoed it without filtering. Using a standard script payload in the form triggered the alert, showing direct use of $_POST["input"].
 
   - Payload: scriptalert("Level 2: Hacked by Mahitha Kalaga")/script
   - Input Method: Submitted via POST
@@ -64,12 +64,43 @@ The input was submitted via POST by creating level.html, and the server echoed i
 
 ### Level 3: 
 
-The <script> tag was filtered, so I used img src=x onerror=... to trigger JavaScript via an event. The alert showed my message, confirming that only script tags were stripped, not event handlers.
+The script tag was filtered, so I used img src=x onerror=... to trigger JavaScript via an event. The alert showed my message, confirming that only script tags were stripped, not event handlers.
 
   - Payload: img src=x onerror="alert('Level 3: Hacked by Mahitha Kalaga')
   - Code Guess: echo str_replace("script", "", $_GET["input"]);
 
 ![level 3](/images/level3.jpeg)
+
+### Level 4: 
+
+I used the <details> HTML tag with the ontoggle event to trigger the alert. The payload successfully executed and displayed the message “Level 4: Hacked by Mahitha Kalaga”. This confirms the application only filters specific tags like <script> but still allows dangerous event attributes.
+
+  - Payload: details open ontoggle="alert('Level 4: Hacked by Mahitha Kalaga')"
+  - Code Guess: echo str_ireplace("<script>", "", $_GET["input"]);
+
+![level 4](/images/level4.jpeg)
+
+### Level 5: 
+
+Since keywords like alert and script were filtered in Level 5, I bypassed detection using a harmless-looking <img> tag with a console.log() payload. The attack succeeded, and the message “Level 5: Hacked by Mahitha Kalaga” was printed in the browser console. This confirms that the input is still executed in the browser context, even though the output is sanitized for visible scripts.
+
+  - Payload: img src=x onerror="console.log('Level 5: Hacked by Mahitha Kalaga')"
+  - Code Guess: $input = $_GET["input"];
+                         $input = str_ireplace(["<script>", "alert"], "", $input);
+                         echo $input;
+
+![level 5](/images/level5.jpeg)
+
+![level 5](/images/level5.1.jpeg)
+
+### Level 6: 
+
+Level 6 was designed to escape special characters, using htmlentities(). Despite that, I successfully injected a working script tag via URL, and the alert “Level 6: Hacked by Mahitha Kalaga” was displayed. This indicates that the server-side encoding was either bypassed or not enforced properly in all contexts.
+
+  - Payload: scriptalert("Level 6: Hacked by Mahitha Kalaga")/script
+  - Code Guess: echo htmlentities($_POST["input"]);
+
+![level 6](/images/level6.jpeg)
 
 ### Task 2: Defenses
 
