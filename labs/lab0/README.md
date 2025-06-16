@@ -24,6 +24,10 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 - [Lab 1](labs/lab1): Foundations of the Web
 - [Lab 2](labs/lab2): Front-end Web Development
 
+### Hackathons
+
+- [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
+
 ## Report
 
 ## The lab's overview
