@@ -26,63 +26,52 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 ## Report
 
-## The lab's overview
+## The Hackathon's overview
 
 This lab focused on core front-end web development techniques using HTML, CSS, JavaScript, Ajax, jQuery, and Web API integration. The tasks reinforced lecture materials from weeks 4 to 6 and were implemented using a local Apache server. Through this lab, I gained experience in dynamic page updates, asynchronous requests, real-time clocks, and integrating third-party APIs into web interfaces.
 
-Lab's URL: [Lab2](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab2)
+Hackathon's URL: [Hackathon](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/hackathon1)
 
-## Part 1 - Basic HTML with Forms, and JavaScript
+## Task 1: Attacks
 
-### Task 1.A: A Basic HTML 
+In this task, I performed reflected XSS attacks on levels 0 to 6 by injecting custom payloads to display messages like "Hacked by Mahitha Kalaga". For each level, I bypassed filters using different techniques such as using image tags, obfuscated scripts, and DOM manipulation, and identified the likely vulnerable PHP code behind each level.
 
-Created waph-mahitha.html with proper HTML tags. Included:
- - Headshot image (150x150 pixels)
- - A simple form with <input> and <submit> tags
+### Level 0: 
 
-![Basic HTML waph-mahitha.html](../../images/2.1.a.a.jpeg) 
+I injected a basic <script>alert('Level 0: Hacked by Mahitha Kalaga')script payload. Since there was no input filtering, the alert executed successfully.
 
-![Basic HTML waph-mahitha.html](../../images/2.1.a.jpeg) 
+![level 0](/images/level0.jpeg)
 
-![Basic HTML waph-mahitha.html](../../images/2.1.a.a.a.jpeg)
+![level 0](/images/level0.1.jpeg)
 
-### Task 1.B.i: Inline JavaScript
+### Level 1: 
 
-For the inline JavaScript task, I added an onclick event to a button that, when clicked, displays the current date and time. I also used the onkeypress attribute in a text input to log what keys were pressed to the browser console. 
 
-![Inline JavaScript](../../images/2.1.b.2.jpeg)
 
-![Inline JavaScript](../../images/2.1.b.2.1.jpeg)
+![level 1](/images/level1.jpeg)
 
-### Task 1.B.ii: Digital Clock 
+### Level 2: 
 
-Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM,SS format. This was written inside a script tag and directly manipulated the inner content of a div. 
+The input was submitted via POST by creating level.html, and the server echoed it without filtering. Using a standard <script> payload in the form triggered the alert, showing direct use of $_POST["input"].
 
-![Digital Clock](../../images/2.1.b.jpeg)
+  - Payload: scriptalert("Level 2: Hacked by Mahitha Kalaga")/script
+  - Input Method: Submitted via POST
+  - Code Guess: echo $_POST["input"];
 
-![Digital Clock](../../images/2.1.b.b.jpeg)
+![level 2](/images/level2.jpeg)
 
-![Digital Clock](../../images/2.1.b.b.b.jpeg)
+![level 2](/images/level2.1.jpeg)
 
-### Task 1.B.iii: Show/Hide Email
+### Level 3: 
 
-Created a reusable and modular JavaScript file (email.js) that dynamically toggles the visibility of my email address. When the user clicks a div, the content switches between a label and a mailto: hyperlink. This component demonstrates external JS integration, conditional logic, and DOM element replacement.
+The <script> tag was filtered, so I used img src=x onerror=... to trigger JavaScript via an event. The alert showed my message, confirming that only script tags were stripped, not event handlers.
 
-![Show/Hide Email](../../images/2.1.c.jpeg)
+  - Payload: img src=x onerror="alert('Level 3: Hacked by Mahitha Kalaga')
+  - Code Guess: echo str_replace("script", "", $_GET["input"]);
 
-![Show/Hide Email](../../images/2.1.c.c.jpeg)
+![level 3](/images/level3.jpeg)
 
-![Show/Hide Email](../../images/2.1.c.c.c.jpeg)
-
-### Task 1.B.iv: Analog Clock
-
-Added an analog clock using a <canvas> element and the external script hosted at https:/waph-phung.github.io/clock.js. The script draws clock hands in real time using canvas rendering.
-
-![Analog Clock](../../images/2.1.d.jpeg)
-
-![Analog Clock](../../images/2.1.d.d.jpeg)
-
-### Task 2: Ajax, CSS, jQuery, and Web API Integration
+### Task 2: Defenses
 
 ### Task 2.A: Ajax 
 
