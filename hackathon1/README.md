@@ -110,7 +110,6 @@ Level 6 was designed to escape special characters, using htmlentities(). Despite
 
 ### Task 2.1: Lab 1 - echo.php XSS Defense
 
-Revisions Made
  - Escaped user inputs using htmlspecialchars() to prevent JavaScript injection.
  - Applied basic input validation to accept only alphanumeric characters and limited symbols.
 
