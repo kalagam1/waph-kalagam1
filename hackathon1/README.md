@@ -77,10 +77,10 @@ The script tag was filtered, so I used img src=x onerror=... to trigger JavaScri
 
 ### Level 4: 
 
-I used the details HTML tag with the ontoggle event to trigger the alert. The payload successfully executed and displayed the message “Level 4: Hacked by Mahitha Kalaga”. This confirms the application only filters specific tags like <script> but still allows dangerous event attributes.
+I used the details HTML tag with the ontoggle event to trigger the alert. The payload successfully executed and displayed the message “Level 4: Hacked by Mahitha Kalaga”. This confirms the application only filters specific tags like script but still allows dangerous event attributes.
 
   - Payload: details open ontoggle="alert('Level 4: Hacked by Mahitha Kalaga')"
-  - Code Guess: echo str_ireplace("<script>", "", $_GET["input"]);
+  - Code Guess: echo str_ireplace("script", "", $_GET["input"]);
 
 ![level 4](/images/level4.jpeg)
 
@@ -90,7 +90,7 @@ Since keywords like alert and script were filtered in Level 5, I bypassed detect
 
   - Payload: img src=x onerror="console.log('Level 5: Hacked by Mahitha Kalaga')"
   - Code Guess: $input = $_GET["input"];
-                         $input = str_ireplace(["<script>", "alert"], "", $input);
+                         $input = str_ireplace(["script", "alert"], "", $input);
                          echo $input;
 
 ![level 5](/images/level5.jpeg)
@@ -108,53 +108,24 @@ Level 6 was designed to escape special characters, using htmlentities(). Despite
 
 ### Task 2: Defenses
 
-### Task 2.A: Ajax 
+### Task 2.1: Lab 1 - echo.php XSS Defense
 
-Implemented a form-driven Ajax request using XMLHttpRequest to send user input to echo.php. The servers response is retrieved and rendered within a target div element. By monitoring the request through browser developer tools, I gained insight into asynchronous communication and HTTP request/response lifecycles.
+Revisions Made
+ - Escaped user inputs using htmlspecialchars() to prevent JavaScript injection.
+ - Applied basic input validation to accept only alphanumeric characters and limited symbols.
 
-![Ajax](../../images/2.2.a.jpeg)
+![lab1](/images/h2.jpeg)
 
-![Ajax](../../images/2.2.a.a.jpeg)
+![lab1](/images/git1.jpeg)
 
-### Task 2.B: CSS  
+### Task 2.2: Lab 2 - Front-End Prototype XSS Defenses
 
-Demonstrated an understanding of different CSS application methods:
- - Inline CSS was used directly within HTML tags for quick styling.
- - Internal CSS was defined within a style block in the head for layout consistency.
- - External CSS was applied by linking to a remote stylesheet (https:/waph-phung.github.io/style3.css).
+Secure front-end user registration form using HTML, jQuery, and JavaScript. The form included username, password, and confirm password input fields where client-side validation was done through input patterns and regular expressions. A password policy was used to require a mix of upper and lower case, digits, and special characters. JavaScript event handlers were used to check password strength dynamically and confirm matching. To avoid reflected XSS attacks, user input was sanitized by calling a custom sanitizeInput() function before it was rendered in the DOM.
 
-![CSS](../../images/2.2.b.jpeg)
+![lab2](/images/level2.2.jpeg)
 
-![CSS](../../images/2.2.b.b.jpeg)
+![lab2](/images/level2.2.1.jpeg)
 
-### Task 2.C: jQuery   
+![lab2](/images/level2.2.3.jpeg)
 
-Included the jQuery library via CDN and developed Ajax functions using both $get() and $post() methods to interact with the echo.php endpoint. The responses were dynamically injected into the DOM.   
-
-![jQuery](../../images/2.2.c.1.jpeg)
-
-![jQuery](../../images/2.2.c.c.1.jpeg)
-
-![jQuery](../../images/2.2.c.2.jpeg)
-
-![jQuery](../../images/2.2.c.c.2.jpeg)
-
-### Task 2.D: Web API Integration  
-
- - i. Joke API
-
-Used jQuery to fetch a random programming joke from https:/v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a div element. This integration demonstrated the practical use of external APIs to enhance user engagement.
-
-![Joke API](../../images/2.2.d.i.jpeg)
-
-![Joke API](../../images/2.2.d.d.1.jpeg)
-
- - ii. Agify API with fetch()
-
-Used JavaScripts modern fetch() API to retrieve age prediction data from https:/api.agify.io/?name=... based on user input. The results were processed asynchronously and rendered within the page, providing a hands-on example of modern JavaScript promises and external API interaction.
-
-![Agify API with fetch()](../../images/2.2.d.2.jpeg)
-
-![Agify API with fetch()](../../images/2.2.d.d.2.jpeg)
-
-
+![lab2](/images/git2.jpeg)
