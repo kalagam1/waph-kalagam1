@@ -46,15 +46,15 @@ In this task, I performed reflected XSS attacks on levels 0 to 6 by injecting cu
 
 I injected a basic scriptalert('Level 0: Hacked by Mahitha Kalaga')script payload. Since there was no input filtering, the alert executed successfully.
 
-![level 0](/images/level0.jpeg)
+![level 0](../images/level0.jpeg)
 
-![level 0](/images/level0.1.jpeg)
+![level 0](../images/level0.1.jpeg)
 
 ### Level 1: 
 
 The input was reflected inside an attribute, so I broke out using "script.../script. This triggered the alert, proving the vulnerability exists in unescaped attribute context.
 
-![level 1](/images/level1.jpeg)
+![level 1](../images/level1.jpeg)
 
 ### Level 2: 
 
@@ -64,9 +64,9 @@ The input was submitted via POST by creating level.html, and the server echoed i
   - Input Method: Submitted via POST
   - Code Guess: echo $_POST["input"];
 
-![level 2](/images/level2.jpeg)
+![level 2](../images/level2.jpeg)
 
-![level 2](/images/level2.1.jpeg)
+![level 2](../images/level2.1.jpeg)
 
 ### Level 3: 
 
@@ -75,7 +75,7 @@ The script tag was filtered, so I used img src=x onerror=... to trigger JavaScri
   - Payload: img src=x onerror="alert('Level 3: Hacked by Mahitha Kalaga')
   - Code Guess: echo str_replace("script", "", $_GET["input"]);
 
-![level 3](/images/level3.jpeg)
+![level 3](../images/level3.jpeg)
 
 ### Level 4: 
 
@@ -84,7 +84,7 @@ I used the details HTML tag with the ontoggle event to trigger the alert. The pa
   - Payload: details open ontoggle="alert('Level 4: Hacked by Mahitha Kalaga')"
   - Code Guess: echo str_ireplace("script", "", $_GET["input"]);
 
-![level 4](/images/level4.jpeg)
+![level 4](../images/level4.jpeg)
 
 ### Level 5: 
 
@@ -95,9 +95,9 @@ Since keywords like alert and script were filtered in Level 5, I bypassed detect
                          $input = str_ireplace(["script", "alert"], "", $input);
                          echo $input;
 
-![level 5](/images/level5.jpeg)
+![level 5](../images/level5.jpeg)
 
-![level 5](/images/level5.1.jpeg)
+![level 5](../images/level5.1.jpeg)
 
 ### Level 6: 
 
@@ -106,7 +106,7 @@ Level 6 was designed to escape special characters, using htmlentities(). Despite
   - Payload: scriptalert("Level 6: Hacked by Mahitha Kalaga")/script
   - Code Guess: echo htmlentities($_POST["input"]);
 
-![level 6](/images/level6.jpeg)
+![level 6](../images/level6.jpeg)
 
 ### Task 2: Defenses
 
@@ -115,18 +115,18 @@ Level 6 was designed to escape special characters, using htmlentities(). Despite
  - Escaped user inputs using htmlspecialchars() to prevent JavaScript injection.
  - Applied basic input validation to accept only alphanumeric characters and limited symbols.
 
-![lab1](/images/h2.jpeg)
+![lab1](../images/h2.jpeg)
 
-![lab1](/images/git1.jpeg)
+![lab1](../images/git1.jpeg)
 
 ### Task 2.2: Lab 2 - Front-End Prototype XSS Defenses
 
 Secure front-end user registration form using HTML, jQuery, and JavaScript. The form included username, password, and confirm password input fields where client-side validation was done through input patterns and regular expressions. A password policy was used to require a mix of upper and lower case, digits, and special characters. JavaScript event handlers were used to check password strength dynamically and confirm matching. To avoid reflected XSS attacks, user input was sanitized by calling a custom sanitizeInput() function before it was rendered in the DOM.
 
-![lab2](/images/level2.2.jpeg)
+![lab2](../images/level2.2.jpeg)
 
-![lab2](/images/level2.2.1.jpeg)
+![lab2](../images/level2.2.1.jpeg)
 
-![lab2](/images/level2.2.3.jpeg)
+![lab2](../images/level2.2.3.jpeg)
 
-![lab2](/images/git2.jpeg)
+![lab2](../images/git2.jpeg)
