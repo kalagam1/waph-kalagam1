@@ -7,7 +7,7 @@ function showhideEmail(){
 	else{
 		var myemail= "<a href='mailto:kalagam1" + "@" + "udayton.edu'>kalagam1" + "@" + "udayton.edu</a>";
 		document.getElementById('email').outerHTML = myemail;
-		shown=true;
+		shown = true;
 
 	}
 }

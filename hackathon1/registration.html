@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure User Registration</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function sanitizeInput(inputText) {
+      return inputText.replace(/&/g, "&amp;")
+                      .replace(/</g, "<")
+                      .replace(/>/g, ">")
+                      .replace(/"/g, "&quot;")
+                      .replace(/'/g, "&#039;");
+    }
+
+    $(document).ready(function () {
+      $("#userPassword").on("input", function () {
+        const pwd = $(this).val();
+        const regex = /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+        if (!regex.test(pwd)) {
+          $("#pwdError").text("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%?&).").show();
+        } else {
+          $("#pwdError").hide();
+        }
+      });
+
+      $("#confirmPassword").on("input", function () {
+        if ($(this).val() !== $("#userPassword").val()) {
+          $("#pwdMatchError").text("Passwords do not match.").show();
+        } else {
+          $("#pwdMatchError").hide();
+        }
+      });
+
+      $("#registerForm").on("submit", function (event) {
+        event.preventDefault(); 
+
+        if ($("#userPassword").val() !== $("#confirmPassword").val()) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        const userName = $("#userName").val();
+        const safeUserName = sanitizeInput(userName);
+
+        $("#registerForm").hide();
+        $("#successMsg").html(" Welcome, " + safeUserName + "!");
+      });
+    });
+  </script>
+</head>
+<body>
+  <form id="registerForm">
+    <p>User Name: 
+      <input type="text" required pattern="[A-Za-z0-9_]{3,20}" name="userName" id="userName">
+    </p>
+    <p>Password: 
+      <input type="password" required id="userPassword">
+      <span id="pwdError" style="color: red; display: none;"></span>
+    </p>
+    <p>Confirm Password: 
+      <input type="password" required id="confirmPassword">
+      <span id="pwdMatchError" style="color: red; display: none;"></span>
+    </p>
+    <p>
+      <input type="submit" value="Register Now">
+    </p>
+  </form>
+  <p id="successMsg"></p>
+</body>
+</html>
