@@ -12,7 +12,7 @@
 
 ## Repository Information
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
 
 This is a private repository for Mahitha Kalaga to store all the code from the course. The organization of this repository is as follows.
 
@@ -39,7 +39,7 @@ This lab focused on understanding how the web works, specifically the HTTP proto
  - Writing and deploying CGI programs in C.
  - Developing simple PHP applications that handle GET and POST requests.
 
-Lab's URL: [Lab1](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab1)
+Lab's URL: [Lab1](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab1)
 
 ## Part 1 - The Web and HTTP Protocol
 
