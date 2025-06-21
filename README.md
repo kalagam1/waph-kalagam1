@@ -15,7 +15,7 @@
 
 ## Repository Information
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
 
 This is a private repository for Mahitha Kalaga to store all code from the course. The organization of this repository is as follows.
 
