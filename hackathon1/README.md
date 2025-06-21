@@ -12,7 +12,7 @@
 
 ## Repository Information
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
 
 This is a private repository for Mahitha Kalaga to store all the code from the course. The organization of this repository is as follows.
 
@@ -34,7 +34,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 This hackathon focused on identifying and exploiting reflected Cross-Site Scripting (XSS) vulnerabilities through a series of hands-on web security exercises. Covered in Lectures 7 and 8, the hackathon included two tasks: performing XSS attacks across seven levels of increasing difficulty, and implementing proper defenses in insecure web applications from Lab 1 and Lab 2.
 
-Hackathon's URL: [Hackathon](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/hackathon1)
+Hackathon's URL: [Hackathon](https://github.com/kalagam1/waph-kalagam1/tree/main/hackathon1)
 
 Demo URL: [Video Demo]()
 
