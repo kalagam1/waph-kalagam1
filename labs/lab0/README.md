@@ -12,7 +12,7 @@
 
 ## Repository Information
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
 
 This is a private repository for Mahitha Kalaga to store all code from the course. The organization of this repository is as follows.
 
@@ -34,7 +34,7 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 This lab focused on setting up the development environment for WAPH. In Part I, I installed Ubuntu 22.04 in VirtualBox and configured the system with essential packages. In Part II, I cloned both the public course repository and my private GitHub repository, and completed git-related tasks.
 
-Lab's URL: [Lab0](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab0)
+Lab's URL: [Lab0](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab0)
 
 ## Part 1 -  Ubuntu Virtual Machine & Software Installation
 
@@ -57,7 +57,7 @@ I created a private GitHub repository named waph-mahitha and shared it with the 
 
 ### The course repository
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
 
 ![Course Repository](../../images/3.jpeg)
 
