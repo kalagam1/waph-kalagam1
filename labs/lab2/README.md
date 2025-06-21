@@ -12,7 +12,7 @@
 
 ## Repository Information
 
-Repository's URL: [https://github.com/MahithaKalaga-cyber/waph-mahitha.git](https://github.com/MahithaKalaga-cyber/waph-mahitha.git)
+Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
 
 This is a private repository for Mahitha Kalaga to store all the code from the course. The organization of this repository is as follows.
 
@@ -34,7 +34,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 This lab focused on core front-end web development techniques using HTML, CSS, JavaScript, Ajax, jQuery, and Web API integration. The tasks reinforced lecture materials from weeks 4 to 6 and were implemented using a local Apache server. Through this lab, I gained experience in dynamic page updates, asynchronous requests, real-time clocks, and integrating third-party APIs into web interfaces.
 
-Lab's URL: [Lab2](https://github.com/MahithaKalaga-cyber/waph-mahitha/tree/main/labs/lab2)
+Lab's URL: [Lab2](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab2)
 
 ## Part 1 - Basic HTML with Forms, and JavaScript
 
