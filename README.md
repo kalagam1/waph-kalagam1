@@ -35,6 +35,6 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 ### Individual  Projects
 
-- [Individual Project 1](kalagam1.github.io): Front-end Web Development with a Professional Profile Website and API Integration on github.io cloud service
+- [Individual Project 1](https://github.com/kalagam1/kalagam1.github.io): Front-end Web Development with a Professional Profile Website and API Integration on github.io cloud service
   
 ### Team Project
