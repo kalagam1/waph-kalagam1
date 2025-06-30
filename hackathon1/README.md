@@ -99,7 +99,7 @@ Since keywords like alert and script were filtered in Level 5, I bypassed detect
                          $input = str_ireplace(["script", "alert"], "", $input);
                          echo $input;
 
-![level 5](../images/LEVEL5.jpeg)
+![level 5](../images/LEVEL5.JPEG)
 
 ### Level 6: 
 
