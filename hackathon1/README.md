@@ -94,14 +94,12 @@ I used the details HTML tag with the ontoggle event to trigger the alert. The pa
 
 Since keywords like alert and script were filtered in Level 5, I bypassed detection using a harmless-looking <img> tag with a console.log() payload. The attack succeeded, and the message “Level 5: Hacked by Mahitha Kalaga” was printed in the browser console. This confirms that the input is still executed in the browser context, even though the output is sanitized for visible scripts.
 
-  - Payload: img src=x onerror="console.log('Level 5: Hacked by Mahitha Kalaga')"
+  - Payload: img src=x onerror="confirm('Level 5: Hacked by Mahitha Kalaga')"
   - Code Guess: $input = $_GET["input"];
                          $input = str_ireplace(["script", "alert"], "", $input);
                          echo $input;
 
-![level 5](../images/level5.jpeg)
-
-![level 5](../images/level5.1.jpeg)
+![level 5](../images/LEVEL5.jpeg)
 
 ### Level 6: 
 
