@@ -23,7 +23,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 - [Lab 0](labs/lab0): Development Environment Setup
 - [Lab 1](labs/lab1): Foundations of the Web
 - [Lab 2](labs/lab2): Front-end Web Development
-
+- [Lab 3](labs/lab3): Secure Web Application Development in PHP/MySQL
 ### Hackathons
 
 - [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
@@ -38,9 +38,9 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 This lab focused on core front-end web development techniques using HTML, CSS, JavaScript, Ajax, jQuery, and Web API integration. The tasks reinforced lecture materials from weeks 4 to 6 and were implemented using a local Apache server. Through this lab, I gained experience in dynamic page updates, asynchronous requests, real-time clocks, and integrating third-party APIs into web interfaces.
 
-Lab's URL: [Lab2](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab2)
+Lab's URL: [Lab3](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab3)
 
-## Part 1 - Basic HTML with Forms, and JavaScript
+## Part 1 - Database Setup and Management
 
 ### Task 1.A: A Basic HTML 
 
@@ -90,7 +90,7 @@ Added an analog clock using a <canvas> element and the external script hosted at
 
 ![Analog Clock](../../images/2.1.d.d.jpeg)
 
-### Task 2: Ajax, CSS, jQuery, and Web API Integration
+### Task 2: A Simple (Insecure) Login System with PHP/MySQL 
 
 ### Task 2.A: Ajax 
 
