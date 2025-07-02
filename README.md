@@ -24,10 +24,9 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 [Hands-on exercises in Lectures](labs)
 
 - [Lab 0](labs/lab0): Development Environment Setup
-
 - [Lab 1](labs/lab1): Foundations of the Web
-
 - [Lab 2](labs/lab2): Front-end Web Development
+- [Lab 3](labs/lab3): Secure Web Application Development in PHP/MySQL
 
 ### Hackathons
 
