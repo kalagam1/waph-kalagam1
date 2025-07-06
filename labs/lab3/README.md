@@ -27,6 +27,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 ### Hackathons
 
 - [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
+- [Hackathon 2](hackathon2): SQL Injection Attacks
 
 ### Individual Projects
 
