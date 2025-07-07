@@ -42,95 +42,82 @@ This hackathon focused on identifying and exploiting reflected Cross-Site Script
 
 Hackathon's URL: [Hackathon](https://github.com/kalagam1/waph-kalagam1/tree/main/hackathon2)
 
-Demo URL: [Video Demo](https://1drv.ms/v/c/2b4aedabaf61a0bf/EQTUZZdYsBFFhUt9w9HdBVgBU-IHNXLMJD8WDwmk-ACyAA?e=OWtqhS)
-
 ## Task 1: Attacks
 
 In this task, I performed reflected XSS attacks on levels 0 to 6 by injecting custom payloads to display messages like "Hacked by Mahitha Kalaga". For each level, I bypassed filters using different techniques such as using image tags, obfuscated scripts, and DOM manipulation, and identified the likely vulnerable PHP code behind each level.
 
-### Level 0: 
+### Level 0: Basic SQL Injection
 
-I injected a basic scriptalert('Level 0: Hacked by Mahitha Kalaga')script payload. Since there was no input filtering, the alert executed successfully.
+I used a basic SQL injection technique to bypass authentication. In the username field, I entered the following payload: kalagam1’ OR ‘1’=’1’;#
 
 ![level 0](../images/level0.jpeg)
 
 ![level 0](../images/level0.1.jpeg)
 
-### Level 1: 
+This worked because the injected SQL always returns true, effectively bypassing login and granting access. I confirmed this through the page’s response and also checked the payload using browser developer tools.
 
-The input was reflected inside an attribute, so I broke out using "script.../script. This triggered the alert, proving the vulnerability exists in unescaped attribute context.
+### Level 1: Modified Injection Technique
+
+To bypass it, I used: kalagam1" OR "1"="1" LIMIT 1;#
 
 ![level 1](../images/level1.jpeg)
 
-### Level 2: 
+The login succeeded with this input, confirming that the SQL query behind the scenes uses double quotes for the username field.
 
-The input was submitted via POST by creating level.html, and the server echoed it without filtering. Using a standard script payload in the form triggered the alert, showing direct use of $_POST["input"].
+### Level 2: Advanced SQL Injection and Data Extraction
 
-  - Payload: scriptalert("Level 2: Hacked by Mahitha Kalaga")/script
-  - Input Method: Submitted via POST
-  - Code Guess: echo $_POST["input"];
+#### a. Detecting SQL Injection Vulnerabilities
+
+The page contains three links—apple, pear, and login. The login form is protected against SQLi, but the URL parameter (id) in the apple/pear links is vulnerable.
+
+Injecting SQL statements like SELECT and UNION into the URL successfully returned data. For example: .../product.php?id=1 UNION SELECT 1,2
 
 ![level 2](../images/level2.jpeg)
 
 ![level 2](../images/level2.1.jpeg)
 
-### Level 3: 
+The error response helped determine how many columns are expected.
 
-The script tag was filtered, so I used img src=x onerror=... to trigger JavaScript via an event. The alert showed my message, confirming that only script tags were stripped, not event handlers.
+#### b. Exploiting the Vulnerability
 
-  - Payload: img src=x onerror="alert('Level 3: Hacked by Mahitha Kalaga')
-  - Code Guess: echo str_replace("script", "", $_GET["input"]);
+i. Identifying the Number of Columns
+
+By trial and error, I determined that the backend query expects three columns. This payload worked: .../product.php?id=1 UNION SELECT 1,2,3
 
 ![level 3](../images/level3.jpeg)
 
-### Level 4: 
+ii. Displaying Custom Information
 
-I used the details HTML tag with the ontoggle event to trigger the alert. The payload successfully executed and displayed the message “Level 4: Hacked by Mahitha Kalaga”. This confirms the application only filters specific tags like script but still allows dangerous event attributes.
-
-  - Payload: details open ontoggle="alert('Level 4: Hacked by Mahitha Kalaga')"
-  - Code Guess: echo str_ireplace("script", "", $_GET["input"]);
+I replaced the columns with my own data: .../product.php?id=1 UNION SELECT "kalagam1", "Mahitha", "M6"
 
 ![level 4](../images/level4.jpeg)
 
-### Level 5: 
+This allowed me to display my name, username, and section in the page.
 
-Since keywords like alert and script were filtered in Level 5, I used hex escape encoding to obfuscate the alert() function, bypassing the server's keyword filters. 
+iii. Revealing the Database Schema
 
-  - Payload: img src=x onerror="eval('\x61\x6c\x65\x72\x74\x28\x22Level 5: Hacked by Mahitha Kalaga!\x22\x29')"
-  - Code Guess: $input = $_GET["input"];
-                         $input = str_ireplace(["script", "alert"], "", $input);
-                         echo $input;
+To view table and column names from the database, I used: .../product.php?id=0 UNION SELECT table_name, column_name, 'Hacked by kalagam1' FROM information_schema.columns
 
 ![level 5](../images/Level5.jpeg)
 
-### Level 6: 
+This revealed full database structure, including login-related tables.
 
-Level 6 was designed to escape special characters, using htmlentities(). Despite that, I successfully injected a working script tag via URL, and the alert “Level 6: Hacked by Mahitha Kalaga” was displayed. This indicates that the server-side encoding was either bypassed or not enforced properly in all contexts.
+![level 5](../images/Level5.jpeg)
 
-  - Payload: scriptalert("Level 6: Hacked by Mahitha Kalaga")/script
-  - Code Guess: echo htmlentities($_POST["input"]);
+![level 5](../images/Level5.jpeg)
+
+iv. Extracting Login Credentials
+
+To fetch actual credentials from the login table, I used: .../product.php?id=0 UNION SELECT loginname, password, 'Hacked by kalagam1' FROM login
 
 ![level 6](../images/level6.jpeg)
 
-### Task 2: Defenses
+The result showed usernames and hashed passwords (in MD5 format). I used online MD5 decryption tools to crack them and found passwords like qwerty and abc123.
 
-### Task 2.1: Lab 1 - echo.php XSS Defense
+#### c. Logging In with Stolen Credentials
 
- - Escaped user inputs using htmlspecialchars() to prevent JavaScript injection.
- - Applied basic input validation to accept only alphanumeric characters and limited symbols.
+Using the recovered login details, I successfully accessed the system, proving that the SQL injection allowed unauthorized access to user data and authentication.
 
 ![lab1](../images/h2.jpeg)
 
 ![lab1](../images/git1.jpeg)
-
-### Task 2.2: Lab 2 - Front-End Prototype XSS Defenses
-
-Secure front-end user registration form using HTML, jQuery, and JavaScript. The form included username, password, and confirm password input fields where client-side validation was done through input patterns and regular expressions. A password policy was used to require a mix of upper and lower case, digits, and special characters. JavaScript event handlers were used to check password strength dynamically and confirm matching. To avoid reflected XSS attacks, user input was sanitized by calling a custom sanitizeInput() function before it was rendered in the DOM.
-
-![lab2](../images/level2.2.jpeg)
-
-![lab2](../images/level2.2.1.jpeg)
-
-![lab2](../images/level2.2.3.jpeg)
-
-![lab2](../images/git2.jpeg)
