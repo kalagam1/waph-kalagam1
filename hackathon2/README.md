@@ -50,9 +50,9 @@ In this task, I performed reflected XSS attacks on levels 0 to 6 by injecting cu
 
 I used a basic SQL injection technique to bypass authentication. In the username field, I entered the following payload: kalagam1’ OR ‘1’=’1’;#
 
-![level 0](../images/level0.jpeg)
+![level 0](../images/h2level0.jpeg)
 
-![level 0](../images/level0.1.jpeg)
+![level 0](../images/h2level0.1.jpeg)
 
 This worked because the injected SQL always returns true, effectively bypassing login and granting access. I confirmed this through the page’s response and also checked the payload using browser developer tools.
 
@@ -60,7 +60,13 @@ This worked because the injected SQL always returns true, effectively bypassing 
 
 To bypass it, I used: kalagam1" OR "1"="1" LIMIT 1;#
 
-![level 1](../images/level1.jpeg)
+![level 1](../images/h2level1.3.jpeg)
+
+![level 1](../images/h2level1.jpeg)
+
+![level 1](../images/h2level1.1.jpeg)
+
+![level 1](../images/h2level1.2.jpeg)
 
 The login succeeded with this input, confirming that the SQL query behind the scenes uses double quotes for the username field.
 
@@ -72,9 +78,11 @@ The page contains three links—apple, pear, and login. The login form is protec
 
 Injecting SQL statements like SELECT and UNION into the URL successfully returned data. For example: .../product.php?id=1 UNION SELECT 1,2
 
-![level 2](../images/level2.jpeg)
+![level 2](../images/h2level2.1.jpeg)
 
-![level 2](../images/level2.1.jpeg)
+![level 2](../images/h2level2.2.jpeg)
+
+![level 2](../images/h2level2.3.jpeg)
 
 The error response helped determine how many columns are expected.
 
@@ -84,13 +92,17 @@ i. Identifying the Number of Columns
 
 By trial and error, I determined that the backend query expects three columns. This payload worked: .../product.php?id=1 UNION SELECT 1,2,3
 
-![level 3](../images/level3.jpeg)
+![level 3](../images/h2b.1.jpeg)
+
+![level 3](../images/h2b1.2.jpeg)
 
 ii. Displaying Custom Information
 
 I replaced the columns with my own data: .../product.php?id=1 UNION SELECT "kalagam1", "Mahitha", "M6"
 
-![level 4](../images/level4.jpeg)
+![level 4](../images/h2b.2.2.jpeg)
+
+![level 4](../images/h2b.2.2.jpeg)
 
 This allowed me to display my name, username, and section in the page.
 
@@ -98,19 +110,19 @@ iii. Revealing the Database Schema
 
 To view table and column names from the database, I used: .../product.php?id=0 UNION SELECT table_name, column_name, 'Hacked by kalagam1' FROM information_schema.columns
 
-![level 5](../images/Level5.jpeg)
+![level 5](../images/h2b.3.jpeg)
 
 This revealed full database structure, including login-related tables.
 
-![level 5](../images/Level5.jpeg)
+![level 5](../images/h2b.4.1.jpeg)
 
-![level 5](../images/Level5.jpeg)
+![level 5](../images/h2b.4.2.jpeg)
 
 iv. Extracting Login Credentials
 
 To fetch actual credentials from the login table, I used: .../product.php?id=0 UNION SELECT loginname, password, 'Hacked by kalagam1' FROM login
 
-![level 6](../images/level6.jpeg)
+![level 6](../images/h2b.4.jpeg)
 
 The result showed usernames and hashed passwords (in MD5 format). I used online MD5 decryption tools to crack them and found passwords like qwerty and abc123.
 
@@ -118,6 +130,10 @@ The result showed usernames and hashed passwords (in MD5 format). I used online 
 
 Using the recovered login details, I successfully accessed the system, proving that the SQL injection allowed unauthorized access to user data and authentication.
 
-![lab1](../images/h2.jpeg)
+![lab1](../images/h2c.1.1.jpeg)
 
-![lab1](../images/git1.jpeg)
+![lab1](../images/h2c.1.jpeg)
+
+![lab1](../images/h2c.2.1.jpeg)
+
+![lab1](../images/h2c.2.jpeg)
