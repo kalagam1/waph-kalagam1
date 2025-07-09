@@ -25,6 +25,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 - [Lab 2](labs/lab2): Front-end Web Development
 - [Lab 3](labs/lab3): Secure Web Application Development in PHP/MySQL
 - [Lab 4](labs/lab4): A Secure Login System with Session Authentication
+
 ### Hackathons
 
 - [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
