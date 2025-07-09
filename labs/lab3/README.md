@@ -44,53 +44,69 @@ Lab's URL: [Lab3](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab3)
 
 ## Part 1 - Database Setup and Management
 
-### Task 1.A: MySQL Installation 
+#### Task 1.A: MySQL Installation 
 
-I installed the MySQL server on my virtual machine using the command sudo apt-get install mysql-server -y. After installation, I verified the version using 'mysql -V' and confirmed that it was functioning correctly. I then connected to the MySQL server using sudo mysql -u root -p, which allowed me to proceed with creating and managing databases
+I installed the MySQL server on my virtual machine using the command sudo apt-get install mysql-server -y. After installation, I verified the version using 'mysql -V' and confirmed that it was functioning correctly. I then connected to the MySQL server using sudo mysql -u root -p, which allowed me to proceed with creating and managing databases.
 
-### Task 1.B: Create a New Database, Database User, and Permission 
+![Show/Hide Email](../../images/lab3.1.1.jpeg)
+
+#### Task 1.B: Create a New Database, Database User, and Permission 
 
 After installing MySQL, I created a script named database-account.sql, which contained SQL statements to create a new database, add a user, and assign all necessary privileges. I executed this script from within the MySQL prompt using the SOURCE command. The execution successfully created the database and user account, and confirmed that the user had the appropriate permissions.
 
-![Inline JavaScript](../../images/2.1.b.2.jpeg)
+![Show/Hide Email](../../images/lab3.1.2.jpeg)
 
-![Inline JavaScript](../../images/2.1.b.2.1.jpeg)
+![Show/Hide Email](../../images/lab3.1.2.1.jpeg)
 
-### Task 1.C: Create a New Table Users and Insert Data into the Table
+#### Task 1.C: Create a New Table Users and Insert Data into the Table
 
 To store user data, I created another SQL script named database-data.sql, which defined a Users table with username and password fields. I inserted a test user (kalagam1) with the password, which was hashed using the MD5 function for basic encryption. After executing this script, I used the query SELECT * FROM Users; to verify that the data was stored correctly. I also demonstrated logging into MySQL as the new user (non-root) and displayed the table contents to confirm proper database setup.
 
-![Show/Hide Email](../../images/2.1.c.jpeg)
+![Show/Hide Email](../../images/lab3.1.3.jpeg)
+
+![Show/Hide Email](../../images/lab3.1.3.1.jpeg)
 
 ### Task 2: A Simple (Insecure) Login System with PHP/MySQL
 
 To create the login system, I installed the PHP MySQLi extension using sudo apt-get install php-mysqli and restarted the Apache server with sudo service apache2 restart to apply the changes. Once the environment was ready, I modified the index.php file to include a checklogin_mysql function that used direct SQL queries to validate user credentials. This function connected to the database, retrieved the username and password from POST data, and checked for a match.
 
-![Ajax](../../images/2.2.a.jpeg)
+![Ajax](../../images/lab3.b.1.jpeg)
 
-![Ajax](../../images/2.2.a.a.jpeg)
+![Ajax](../../images/lab3.b.2.jpeg)
+
+![Ajax](../../images/lab3.b.1.jpeg)
+
+![Ajax](../../images/lab3.b.4.jpeg)
 
 For deployment, I copied index.php and form.php into the /var/www/html directory and accessed the web application through a browser. When valid login credentials were entered, the user was successfully authenticated. Invalid login attempts were rejected with an appropriate error message.
 
+![Ajax](../../images/lab3.b.3.jpeg)
+
 ### Task 3: Performing XSS and SQL Injection Attacks 
 
-### Task 3.A: SQL Injection Attack  
+#### Task 3.A: SQL Injection Attack  
 
 To demonstrate a SQL injection vulnerability, I crafted a malicious payload and injected it into the username field on the login page. The payload was: kalagam1’ #<script>alert(document.cookie)</script>
 
-![CSS](../../images/2.2.b.jpeg)
-
-![CSS](../../images/2.2.b.b.jpeg)
+![CSS](../../images/lab3.c.1.jpeg)
 
 This payload allowed me to bypass authentication and gain access to the system. Additionally, the embedded JavaScript executed successfully, revealing the session ID through a cookie alert. The attack worked because user inputs were directly included in the SQL query without validation, making the webpage highly vulnerable to SQL injection. 
 
-### Task 3.B: Cross-Site Scripting (XSS)    
+#### Task 3.B: Cross-Site Scripting (XSS)    
 
 I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
 
-![jQuery](../../images/2.2.c.1.jpeg)
+![CSS](../../images/lab3.c.2.jpeg)
+
+![CSS](../../images/lab3.c.4.jpeg)
 
 ### Task 4: Prepared Statement Implementation
+
+![Ajax](../../images/lab3.b.3.jpeg)
+
+![Ajax](../../images/lab3.d.1.jpeg)
+
+![Ajax](../../images/lab3.d.2.jpeg)
 
  - i. Prepared Statement for SQL Injection Prevention
 
