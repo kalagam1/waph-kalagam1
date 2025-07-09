@@ -24,6 +24,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 - [Lab 1](labs/lab1): Foundations of the Web
 - [Lab 2](labs/lab2): Front-end Web Development
 - [Lab 3](labs/lab3): Secure Web Application Development in PHP/MySQL
+- [Lab 4](labs/lab4): A Secure Login System with Session Authentication
 ### Hackathons
 
 - [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
@@ -37,109 +38,64 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 ## The lab's overview
 
-This lab focused on core front-end web development techniques using HTML, CSS, JavaScript, Ajax, jQuery, and Web API integration. The tasks reinforced lecture materials from weeks 4 to 6 and were implemented using a local Apache server. Through this lab, I gained experience in dynamic page updates, asynchronous requests, real-time clocks, and integrating third-party APIs into web interfaces.
+This lab focused on developing secure web applications using PHP and MySQL, emphasizing protection against SQL injection and XSS attacks. Tasks included setting up a MySQL database, creating user tables with hashed passwords, building a basic login system, performing injection attacks, and securing the application using prepared statements and input/output sanitization. Through this lab, I gained hands-on experience in both exploiting and defending against common web vulnerabilities.
 
 Lab's URL: [Lab3](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab3)
 
 ## Part 1 - Database Setup and Management
 
-### Task 1.A: A Basic HTML 
+### Task 1.A: MySQL Installation 
 
-Created waph-mahitha.html with proper HTML tags. Included:
- - Headshot image (150x150 pixels)
- - A simple form with <input> and <submit> tags
+I installed the MySQL server on my virtual machine using the command sudo apt-get install mysql-server -y. After installation, I verified the version using 'mysql -V' and confirmed that it was functioning correctly. I then connected to the MySQL server using sudo mysql -u root -p, which allowed me to proceed with creating and managing databases
 
-![Basic HTML waph-mahitha.html](../../images/2.1.a.a.jpeg) 
+### Task 1.B: Create a New Database, Database User, and Permission 
 
-![Basic HTML waph-mahitha.html](../../images/2.1.a.jpeg) 
-
-![Basic HTML waph-mahitha.html](../../images/2.1.a.a.a.jpeg)
-
-### Task 1.B.i: Inline JavaScript
-
-For the inline JavaScript task, I added an onclick event to a button that, when clicked, displays the current date and time. I also used the onkeypress attribute in a text input to log what keys were pressed to the browser console. 
+After installing MySQL, I created a script named database-account.sql, which contained SQL statements to create a new database, add a user, and assign all necessary privileges. I executed this script from within the MySQL prompt using the SOURCE command. The execution successfully created the database and user account, and confirmed that the user had the appropriate permissions.
 
 ![Inline JavaScript](../../images/2.1.b.2.jpeg)
 
 ![Inline JavaScript](../../images/2.1.b.2.1.jpeg)
 
-### Task 1.B.ii: Digital Clock 
+### Task 1.C: Create a New Table Users and Insert Data into the Table
 
-Using setInterval() and JavaScript's Date() object, I created a live digital clock that updates every second. It displays the time in HH:MM,SS format. This was written inside a script tag and directly manipulated the inner content of a div. 
-
-![Digital Clock](../../images/2.1.b.jpeg)
-
-![Digital Clock](../../images/2.1.b.b.jpeg)
-
-![Digital Clock](../../images/2.1.b.b.b.jpeg)
-
-### Task 1.B.iii: Show/Hide Email
-
-Created a reusable and modular JavaScript file (email.js) that dynamically toggles the visibility of my email address. When the user clicks a div, the content switches between a label and a mailto: hyperlink. This component demonstrates external JS integration, conditional logic, and DOM element replacement.
+To store user data, I created another SQL script named database-data.sql, which defined a Users table with username and password fields. I inserted a test user (kalagam1) with the password, which was hashed using the MD5 function for basic encryption. After executing this script, I used the query SELECT * FROM Users; to verify that the data was stored correctly. I also demonstrated logging into MySQL as the new user (non-root) and displayed the table contents to confirm proper database setup.
 
 ![Show/Hide Email](../../images/2.1.c.jpeg)
 
-![Show/Hide Email](../../images/2.1.c.c.jpeg)
+### Task 2: A Simple (Insecure) Login System with PHP/MySQL
 
-![Show/Hide Email](../../images/2.1.c.c.c.jpeg)
-
-### Task 1.B.iv: Analog Clock
-
-Added an analog clock using a <canvas> element and the external script hosted at https:/waph-phung.github.io/clock.js. The script draws clock hands in real time using canvas rendering.
-
-![Analog Clock](../../images/2.1.d.jpeg)
-
-![Analog Clock](../../images/2.1.d.d.jpeg)
-
-### Task 2: A Simple (Insecure) Login System with PHP/MySQL 
-
-### Task 2.A: Ajax 
-
-Implemented a form-driven Ajax request using XMLHttpRequest to send user input to echo.php. The servers response is retrieved and rendered within a target div element. By monitoring the request through browser developer tools, I gained insight into asynchronous communication and HTTP request/response lifecycles.
+To create the login system, I installed the PHP MySQLi extension using sudo apt-get install php-mysqli and restarted the Apache server with sudo service apache2 restart to apply the changes. Once the environment was ready, I modified the index.php file to include a checklogin_mysql function that used direct SQL queries to validate user credentials. This function connected to the database, retrieved the username and password from POST data, and checked for a match.
 
 ![Ajax](../../images/2.2.a.jpeg)
 
 ![Ajax](../../images/2.2.a.a.jpeg)
 
-### Task 2.B: CSS  
+For deployment, I copied index.php and form.php into the /var/www/html directory and accessed the web application through a browser. When valid login credentials were entered, the user was successfully authenticated. Invalid login attempts were rejected with an appropriate error message.
 
-Demonstrated an understanding of different CSS application methods:
- - Inline CSS was used directly within HTML tags for quick styling.
- - Internal CSS was defined within a style block in the head for layout consistency.
- - External CSS was applied by linking to a remote stylesheet (https:/waph-phung.github.io/style3.css).
+### Task 3: Performing XSS and SQL Injection Attacks 
+
+### Task 3.A: SQL Injection Attack  
+
+To demonstrate a SQL injection vulnerability, I crafted a malicious payload and injected it into the username field on the login page. The payload was: kalagam1’ #<script>alert(document.cookie)</script>
 
 ![CSS](../../images/2.2.b.jpeg)
 
 ![CSS](../../images/2.2.b.b.jpeg)
 
-### Task 2.C: jQuery   
+This payload allowed me to bypass authentication and gain access to the system. Additionally, the embedded JavaScript executed successfully, revealing the session ID through a cookie alert. The attack worked because user inputs were directly included in the SQL query without validation, making the webpage highly vulnerable to SQL injection. 
 
-Included the jQuery library via CDN and developed Ajax functions using both $get() and $post() methods to interact with the echo.php endpoint. The responses were dynamically injected into the DOM.   
+### Task 3.B: Cross-Site Scripting (XSS)    
+
+I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
 
 ![jQuery](../../images/2.2.c.1.jpeg)
 
-![jQuery](../../images/2.2.c.c.1.jpeg)
+### Task 4: Prepared Statement Implementation
 
-![jQuery](../../images/2.2.c.2.jpeg)
+ - i. Prepared Statement for SQL Injection Prevention
 
-![jQuery](../../images/2.2.c.c.2.jpeg)
+To mitigate the SQL injection vulnerability identified earlier, I updated the index.php code to use prepared statements. These use placeholders (?) and bind user input at runtime, ensuring that the input is treated as data rather than part of the SQL query. In the updated implementation, I used POST to capture the input and applied prepare() and bind_param() functions from the MySQLi API. After redeploying the code, I tested the same injection payload, and this time the login failed with an “invalid credentials” message—confirming the SQL injection was successfully blocked.
 
-### Task 2.D: Web API Integration  
+ - ii. Security Analysis
 
- - i. Joke API
-
-Used jQuery to fetch a random programming joke from https:/v2.jokeapi.dev/joke/Programming?type=single on page load. The returned JSON was parsed, and the joke was displayed in a div element. This integration demonstrated the practical use of external APIs to enhance user engagement.
-
-![Joke API](../../images/2.2.d.i.jpeg)
-
-![Joke API](../../images/2.2.d.d.1.jpeg)
-
- - ii. Agify API with fetch()
-
-Used JavaScripts modern fetch() API to retrieve age prediction data from https:/api.agify.io/?name=... based on user input. The results were processed asynchronously and rendered within the page, providing a hands-on example of modern JavaScript promises and external API interaction.
-
-![Agify API with fetch()](../../images/2.2.d.2.jpeg)
-
-![Agify API with fetch()](../../images/2.2.d.d.2.jpeg)
-
-
+I implemented output sanitization techniques to reduce XSS risk by escaping harmful characters before rendering them in HTML. Additionally, I analyzed the system for potential programming flaws such as empty username/password fields and case sensitivity in usernames. I added checks to handle these issues like password hashing (e.g., bcrypt) and secure session handling using HttpOnly and Secure flags. These improvements enhanced the security and reliability of the web application.
