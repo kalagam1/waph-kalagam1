@@ -39,80 +39,102 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 ## The lab's overview
 
-This lab focused on developing secure web applications using PHP and MySQL, emphasizing protection against SQL injection and XSS attacks. Tasks included setting up a MySQL database, creating user tables with hashed passwords, building a basic login system, performing injection attacks, and securing the application using prepared statements and input/output sanitization. Through this lab, I gained hands-on experience in both exploiting and defending against common web vulnerabilities.
+This lab focused on implementing secure session management in PHP-based web applications, highlighting risks like session hijacking and ways to defend against them. Tasks included deploying and testing session behavior, analyzing HTTP traffic with Wireshark, simulating session hijacking attacks, and building a basic login system using sessions. Security measures such as enabling HTTPS, setting HttpOnly and Secure cookie flags, and detecting session hijacking through browser checks were implemented. Through this lab, I gained practical experience in both exploiting insecure session handling and applying effective countermeasures to protect user authentication.
 
-Lab's URL: [Lab3](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab3)
+Lab's URL: [Lab4](https://github.com/kalagam1/waph-kalagam1/tree/main/labs/lab4)
 
-## Part 1 - Database Setup and Management
+## Part 1 - Understanding Session Management in a PHP Web Application
 
-#### Task 1.A: MySQL Installation 
+#### Task 1.A: Deploy and test sessiontest.php
 
-I installed the MySQL server on my virtual machine using the command sudo apt-get install mysql-server -y. After installation, I verified the version using 'mysql -V' and confirmed that it was functioning correctly. I then connected to the MySQL server using sudo mysql -u root -p, which allowed me to proceed with creating and managing databases.
+The script did not track the number of visits due to the absence of session management logic. To enable session tracking, I inserted the session_start(); function at the top of the PHP file. After making this change and deploying the file to the web directory using sudo cp, the page began displaying and updating the session visit count with each refresh. Testing in Chrome and Firefox showed different session IDs, verifying that PHP maintains sessions independently per browser.
 
-![Show/Hide Email](../../images/lab3.1.1.jpeg)
+![Show/Hide Email](../../images/lab41.a.1.jpeg)
 
-#### Task 1.B: Create a New Database, Database User, and Permission 
+![Show/Hide Email](../../images/lab41.a.2.jpeg)
 
-After installing MySQL, I created a script named database-account.sql, which contained SQL statements to create a new database, add a user, and assign all necessary privileges. I executed this script from within the MySQL prompt using the SOURCE command. The execution successfully created the database and user account, and confirmed that the user had the appropriate permissions.
+![Show/Hide Email](../../images/lab41.a.3.jpeg)
 
-![Show/Hide Email](../../images/lab3.1.2.jpeg)
+![Show/Hide Email](../../images/lab41.a.4.jpeg)
 
-![Show/Hide Email](../../images/lab3.1.2.1.jpeg)
+#### Task 1.B: Observing Session Handshaking with Wireshark
 
-#### Task 1.C: Create a New Table Users and Insert Data into the Table
+After deploying session.php, I launched Wireshark to analyze the HTTP traffic during a page visit. On the first visit, there was no cookie sent by the client. However, the server responded with a Set-Cookie header containing a unique session ID. On frequent visits, this session ID was included in the client’s request via the Cookie header, demonstrating the session persistence mechanism.
 
-To store user data, I created another SQL script named database-data.sql, which defined a Users table with username and password fields. I inserted a test user (kalagam1) with the password, which was hashed using the MD5 function for basic encryption. After executing this script, I used the query SELECT * FROM Users; to verify that the data was stored correctly. I also demonstrated logging into MySQL as the new user (non-root) and displayed the table contents to confirm proper database setup.
+![Show/Hide Email](../../images/lab41.b.1.jpeg)
 
-![Show/Hide Email](../../images/lab3.1.3.jpeg)
+![Show/Hide Email](../../images/lab41.2.b.jpeg)
 
-![Show/Hide Email](../../images/lab3.1.3.1.jpeg)
+![Show/Hide Email](../../images/lab41.b.3.jpeg)
 
-### Task 2: A Simple (Insecure) Login System with PHP/MySQL
+#### Task 1.C: Understanding Session Hijacking
 
-To create the login system, I installed the PHP MySQLi extension using sudo apt-get install php-mysqli and restarted the Apache server with sudo service apache2 restart to apply the changes. Once the environment was ready, I modified the index.php file to include a checklogin_mysql function that used direct SQL queries to validate user credentials. This function connected to the database, retrieved the username and password from POST data, and checked for a match.
+To demonstrate session hijacking, I loaded the session.php page in Chrome, used the document.cookie command to retrieve the session ID, and manually copied it into Firefox’s developer console. After setting the cookie using document.cookie = "PHPSESSID=..." in Firefox, the page displayed the same session state as Chrome.
 
-![Ajax](../../images/lab3.b.1.jpeg)
+![Show/Hide Email](../../images/lab41.c.1.jpeg)
 
-![Ajax](../../images/lab3.b.2.jpeg)
+![Show/Hide Email](../../images/lab41.c.3.jpeg)
 
-![Ajax](../../images/lab3.b.1.jpeg)
+### Task 2: Insecure Session Authentication
 
-![Ajax](../../images/lab3.b.4.jpeg)
+#### Task 2.A: Revised Login System with Session Management
 
-For deployment, I copied index.php and form.php into the /var/www/html directory and accessed the web application through a browser. When valid login credentials were entered, the user was successfully authenticated. Invalid login attempts were rejected with an appropriate error message.
+I took the index.php file from Lab 3 and modified it to include session-based access control. I copied the files (index.php, form.php, logout.php) to the Lab 4 directory and edited them. The logic was updated to verify authentication using session variables and restrict access to unauthorized users. A logout.php script was added to destroy the session. After deployment, the system correctly displayed login errors for invalid credentials and maintained authenticated sessions for valid users.
 
-![Ajax](../../images/lab3.b.3.jpeg)
+![Show/Hide Email](../../images/lab42.a.1.jpeg)
 
-### Task 3: Performing XSS and SQL Injection Attacks 
+![Show/Hide Email](../../images/lab42.a.2.jpeg)
 
-#### Task 3.A: SQL Injection Attack  
+![Show/Hide Email](../../images/lab42.a.3.jpeg)
 
-To demonstrate a SQL injection vulnerability, I crafted a malicious payload and injected it into the username field on the login page. The payload was: kalagam1’ #<script>alert(document.cookie)</script>
+![Show/Hide Email](../../images/lab42.a.4.jpeg)
 
-![CSS](../../images/lab3.c.1.jpeg)
+#### Task 2.B: Session Hijacking Attacks
 
-This payload allowed me to bypass authentication and gain access to the system. Additionally, the embedded JavaScript executed successfully, revealing the session ID through a cookie alert. The attack worked because user inputs were directly included in the SQL query without validation, making the webpage highly vulnerable to SQL injection. 
+To demonstrate vulnerability in the revised login system, I used document.cookie to extract the session ID from a logged-in user in one browser. I then injected this session ID into another browser. Upon refreshing the second browser, it was granted access to the authenticated session, proving that session hijacking is possible if the session ID is exposed.
 
-#### Task 3.B: Cross-Site Scripting (XSS)    
+![Show/Hide Email](../../images/lab42.b.1.jpeg)
 
-I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
+![Show/Hide Email](../../images/lab42.b.2.jpeg)
 
-![CSS](../../images/lab3.c.2.jpeg)
+![Show/Hide Email](../../images/lab42.b.3.jpeg)
 
-![CSS](../../images/lab3.c.4.jpeg)
+### Task 3: Securing Session and Session Authentication
 
-### Task 4: Prepared Statement Implementation
+#### Task 3.A: Data Protection and HTTPS Setup 
 
-![Ajax](../../images/lab3.b.3.jpeg)
+To secure data in transit, I generated a self-signed SSL certificate using OpenSSL with a 4096-bit RSA key. The .crt and .key files were copied into the Apache SSL directories (/etc/ssl/certs and /etc/ssl/private). I then edited the Apache SSL configuration file (default-ssl.conf) to point to the certificate files. After enabling the SSL module and restarting Apache, the application became accessible via HTTPS.
 
-![Ajax](../../images/lab3.d.1.jpeg)
+![Show/Hide Email](../../images/lab43.a.1.jpeg)
 
-![Ajax](../../images/lab3.d.2.jpeg)
+![Show/Hide Email](../../images/lab43.a.2.jpeg)
 
- - i. Prepared Statement for SQL Injection Prevention
+![Show/Hide Email](../../images/lab43.a.3.jpeg)
 
-To mitigate the SQL injection vulnerability identified earlier, I updated the index.php code to use prepared statements. These use placeholders (?) and bind user input at runtime, ensuring that the input is treated as data rather than part of the SQL query. In the updated implementation, I used POST to capture the input and applied prepare() and bind_param() functions from the MySQLi API. After redeploying the code, I tested the same injection payload, and this time the login failed with an “invalid credentials” message—confirming the SQL injection was successfully blocked.
+![Show/Hide Email](../../images/lab43.a.4.jpeg)
 
- - ii. Security Analysis
+![Show/Hide Email](../../images/lab43.a.5.jpeg)
 
-I implemented output sanitization techniques to reduce XSS risk by escaping harmful characters before rendering them in HTML. Additionally, I analyzed the system for potential programming flaws such as empty username/password fields and case sensitivity in usernames. I added checks to handle these issues like password hashing (e.g., bcrypt) and secure session handling using HttpOnly and Secure flags. These improvements enhanced the security and reliability of the web application.
+![Show/Hide Email](../../images/lab43.a.6.jpeg)
+
+![Show/Hide Email](../../images/lab43.a.7.jpeg)
+
+#### Task 3.B: Securing Sessions with HttpOnly and Secure Flags  
+
+To strengthen session protection, I modified the PHP configuration to set the HttpOnly and Secure flags for cookies. These settings were defined using session_set_cookie_params() before invoking session_start(). The HttpOnly flag ensures cookies cannot be accessed via JavaScript, mitigating XSS risks, while the Secure flag ensures cookies are only sent over HTTPS. These changes were tested by attempting to access the session cookie from the browser console.
+
+![Show/Hide Email](../../images/lab43.b.1.jpeg)
+
+![Show/Hide Email](../../images/lab43.b.2.jpeg)
+
+![Show/Hide Email](../../images/lab43.b.3.jpeg)
+
+#### Task 3.C: Defense In-Depth: Detecting Session Hijacking
+
+I implemented session hijack detection by checking for mismatches in client information (e.g., user agent or IP address) between requests. If a mismatch was detected, the application triggered a JavaScript alert stating “Session hijacking is detected” and redirected the user to the login page.
+
+![Show/Hide Email](../../images/lab43.c.1.jpeg)
+
+![Show/Hide Email](../../images/lab43.c.2.jpeg)
+
+![Show/Hide Email](../../images/lab43.c.3.jpeg)
