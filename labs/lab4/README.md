@@ -73,7 +73,7 @@ To demonstrate session hijacking, I loaded the session.php page in Chrome, used 
 
 ![Show/Hide Email](../../images/lab41.c.1.jpeg)
 
-![Show/Hide Email](../../images/lab41.c.3.jpeg)
+![Show/Hide Email](../../images/lab41.c.2.jpeg)
 
 ### Task 2: Insecure Session Authentication
 
