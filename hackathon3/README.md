@@ -30,6 +30,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 - [Hackathon 1](hackathon1): Cross-site Scripting Attacks and Defenses
 - [Hackathon 2](hackathon2): SQL Injection Attacks
+- [Hackathon 3](hackathon3): Session Hijacking Attacks and Defenses
 
 ### Individual Projects
 
@@ -41,7 +42,7 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 In Hackathon 2 for the Web Application Programming and Hacking course, I explored various levels of SQL injection (SQLi) vulnerabilities to understand how attackers can exploit insecure web applications. The first two levels involved bypassing login pages using crafted SQL payloads—initially with single quotes and later with double quotes—highlighting differences in backend SQL handling. The third level focuses on vulnerabilities in URL parameters. By injecting SQL code directly into the URL, I was able to identify the number of database columns, display custom information, retrieve the full database schema, and extract login credentials. After decrypting hashed passwords using online MD5 tools, I successfully logged into the system with stolen credentials.
 
-Hackathon's URL: [Hackathon](https://github.com/kalagam1/waph-kalagam1/tree/main/hackathon2)
+Hackathon's URL: [Hackathon](https://github.com/kalagam1/waph-kalagam1/tree/main/hackathon3)
 
 ## Task 1: 
 
