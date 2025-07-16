@@ -63,7 +63,7 @@ After deploying session.php, I launched Wireshark to analyze the HTTP traffic du
 
 ![Show/Hide Email](../../images/lab41.b.1.jpeg)
 
-![Show/Hide Email](../../images/lab41.2.b.jpeg)
+![Show/Hide Email](../../images/lab41.b.2.jpeg)
 
 ![Show/Hide Email](../../images/lab41.b.3.jpeg)
 
