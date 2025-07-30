@@ -13,7 +13,7 @@ $username = $_POST["username"];
 $fullname = $_POST["fullname"];
 $email = $_POST["email"];
 $password = $_POST["password"];
-$repassword = $_POST["repassword"];
+$respassword = $_POST["repassword"];
 
 
 // Prepare SQL to insert new user
@@ -31,7 +31,50 @@ if (!$stmt->execute()) {
     echo "Execute failed: " . $stmt->error;
     exit();
 }
-
-// Show success message
-echo "<h2>Registration succeeded. You can now login.</h2>";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Success</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .message-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .message-box h2 {
+      color: green;
+      margin-bottom: 20px;
+    }
+    .message-box a {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .message-box a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    <h2>Registration succeeded. You can now login.</h2>
+    <a href="login.php">Login Now</a>
+  </div>
+</body>
+</html>

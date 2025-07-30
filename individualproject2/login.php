@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WAPH - Registration Page</title>
+  <title>WAPH - Login Page</title>
   <style>
     body {
       margin: 0;
@@ -54,7 +54,6 @@
     }
 
     input[type="text"],
-    input[type="email"],
     input[type="password"] {
       padding: 12px;
       border: 1px solid #ccc;
@@ -77,9 +76,23 @@
     button:hover {
       background-color: #0056b3;
     }
-  </style>
 
-  <script type="text/javascript">
+    .switch-link {
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .switch-link a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .switch-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
     function displayTime() {
       const options = {
         month: 'short',
@@ -95,49 +108,26 @@
     setInterval(displayTime, 500);
   </script>
 </head>
-
 <body>
   <div class="container">
     <h1>A Simple login form, WAPH</h1>
     <h2>Mahitha Kalaga</h2>
     <div id="digit-clock"></div>
-    <?php
-      echo "<p>Visited time: " . date("M-d h:i:sa") . "</p>";
-    ?>
-    <form action="addnewuser.php" method="POST">
+    <?php echo "<p>Visited time: " . date("M-d h:i:sa") . "</p>"; ?>
+    
+    <form action="index.php" method="POST">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" required>
 
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
 
-      <label for="email">Email:</label>
-      <input type="text" class="text_field" name="email"
-               pattern="^[\w.-]+@[\w-]+(\.[\w-]+)*$"
-               title="Please enter a valid email"
-               placeholder="Your email address"
-               onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"
-               required>
-     <label for="password">Password:</label>
-   <input type="password" name="password"  required
- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\w!@#$%^&]{8,}$"
- placeholder="Your password"
- title="Password must have at least 8 characters with 1 special symbol !@#$%^& 1 number, 1 
-lowercase, and 1 UPPERCASE"
- onchange="this.setCustomValidity(this.validity.patternMismatch?this.title: 
-''); form.repassword.pattern = this.value;"/>
-  <label for="repassword">Confirm Password:</label>
-<input type="password" class="text_field" name="repassword"
- placeholder="Retype your password" required
- title="Password does not match"
- onchange="this.setCustomValidity(this.validity.patternMismatch?this.title: '');"/>
-            <button type="submit">Register</button>
+      <button type="submit">Login</button>
     </form>
+
     <div class="switch-link">
-      <p>Already registered? <a href="login.php">Login</a></p>
+      <p>Didn't register? <a href="registrationform.php">Register now</a></p>
     </div>
-    </form>
   </div>
 </body>
 </html>
-
