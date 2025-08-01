@@ -49,13 +49,13 @@ Project's URL: [Individual Project 2](https://github.com/kalagam1/waph-kalagam1/
 
 #### Task 1.A:  User Registration
 
-I installed the MySQL server on my virtual machine using the command sudo apt-get install mysql-server -y. After installation, I verified the version using 'mysql -V' and confirmed that it was functioning correctly. I then connected to the MySQL server using sudo mysql -u root -p, which allowed me to proceed with creating and managing databases.
+For the user registration component, I created a registration form where users could enter their username, password, full name, and email. Client-side validations were implemented using HTML5 attributes and regex patterns to ensure valid inputs. On the server side, all inputs were sanitized using htmlspecialchars() and trimmed before being processed. Passwords were hashed using md5() before storing them in the database. Duplicate usernames were checked in advance to avoid conflicts, and prepared statements were used throughout to defend against SQL injection.
 
 ![Show/Hide Email](../../images/lab3.1.1.jpeg)
 
 #### Task 1.B: Login
 
-After installing MySQL, I created a script named database-account.sql, which contained SQL statements to create a new database, add a user, and assign all necessary privileges. I executed this script from within the MySQL prompt using the SOURCE command. The execution successfully created the database and user account, and confirmed that the user had the appropriate permissions.
+The login system used session management to authenticate users. Once credentials were validated using hashed passwords, PHP sessions were initialized and stored essential session variables such as username and user agent to help detect hijacking attempts. If authentication failed, users received an alert and were redirected to the login page to retry.
 
 ![Show/Hide Email](../../images/lab3.1.2.jpeg)
 
@@ -63,7 +63,7 @@ After installing MySQL, I created a script named database-account.sql, which con
 
 #### Task 1.C: Profile Management
 
-To store user data, I created another SQL script named database-data.sql, which defined a Users table with username and password fields. I inserted a test user (kalagam1) with the password, which was hashed using the MD5 function for basic encryption. After executing this script, I used the query SELECT * FROM Users; to verify that the data was stored correctly. I also demonstrated logging into MySQL as the new user (non-root) and displayed the table contents to confirm proper database setup.
+The profile management page allowed users to view and update their name, email, and username. The form fields were pre-filled with existing values pulled from the database, and changes were only saved if new input differed from the current data. I ensured that all user input was sanitized and updates were executed via prepared statements. Additionally, CSRF protection was enforced using anti-CSRF tokens, which were generated at session start and verified during submission.
 
 ![Show/Hide Email](../../images/lab3.1.3.jpeg)
 
@@ -71,7 +71,7 @@ To store user data, I created another SQL script named database-data.sql, which 
 
 #### Task 1.D: Password Update 
 
-To store user data, I created another SQL script named database-data.sql, which defined a Users table with username and password fields. I inserted a test user (kalagam1) with the password, which was hashed using the MD5 function for basic encryption. After executing this script, I used the query SELECT * FROM Users; to verify that the data was stored correctly. I also demonstrated logging into MySQL as the new user (non-root) and displayed the table contents to confirm proper database setup.
+The password update feature allowed authenticated users to change their password securely. Input was validated on the client side to enforce strong password criteria and sanitized on the server side. Passwords were stored using md5() hashing, and only non-empty values were accepted. A success or failure message was displayed based on whether the password was successfully updated in the database.
 
 ![Show/Hide Email](../../images/lab3.1.3.jpeg)
 
@@ -81,15 +81,13 @@ To store user data, I created another SQL script named database-data.sql, which 
 
 #### Task 2.A: Security
 
-To demonstrate a SQL injection vulnerability, I crafted a malicious payload and injected it into the username field on the login page. The payload was: kalagam1’ #<script>alert(document.cookie)</script>
+For security implementation, I ensured that no MySQL root accounts were used in the code. All database interactions were handled via prepared statements. Session management was handled securely by starting sessions on each authenticated page and destroying them upon logout to prevent fixation or hijacking.
 
 ![CSS](../../images/lab3.c.1.jpeg)
 
-This payload allowed me to bypass authentication and gain access to the system. Additionally, the embedded JavaScript executed successfully, revealing the session ID through a cookie alert. The attack worked because user inputs were directly included in the SQL query without validation, making the webpage highly vulnerable to SQL injection. 
-
 #### Task 2.B: Input Validation    
 
-I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
+Input validation was thoroughly applied on both the front-end and back-end. HTML5 validation patterns were used in the registration and password forms, while all user input was sanitized using a dedicated sanitize_input() function to mitigate XSS attacks and enforce consistent input hygiene. The database schema included a user table with columns for username, fullname, email, and hashed password, all of which were stored securely.
 
 ![CSS](../../images/lab3.c.2.jpeg)
 
@@ -105,7 +103,7 @@ I tested the application for XSS by injecting a JavaScript snippet into a form i
 
 #### Task 2.D: Front-end Development
 
-I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
+The front-end was designed to be clean and responsive using internal CSS. Each page, including registration, login, profile, and change password—maintained a consistent visual style and responsive layout, ensuring usability across devices.
 
 ![CSS](../../images/lab3.c.2.jpeg)
 
@@ -113,7 +111,7 @@ I tested the application for XSS by injecting a JavaScript snippet into a form i
 
 #### Task 2.E: Session Management    
 
-I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
+Session management was enforced across all secure pages by checking for active user sessions and redirecting unauthorized users to the login page. Upon logout, session variables were cleared and the session was destroyed. 
 
 ![CSS](../../images/lab3.c.2.jpeg)
 
@@ -121,7 +119,7 @@ I tested the application for XSS by injecting a JavaScript snippet into a form i
 
 #### Task 2.F: CSRF Protection  
 
-I tested the application for XSS by injecting a JavaScript snippet into a form input. Since the application did not sanitize the output before reflecting it back onto the page, the script was executed and displayed an alert box containing the session cookie. This demonstrated a stored/reflected XSS vulnerability.
+For CSRF protection, anti-CSRF tokens were used on all forms that modified data—such as updating profile information—ensuring that only legitimate user actions could trigger sensitive operations. If a CSRF attack is performed, it will have a dropdown box saying "CSRF attack detected" and automatically redirects the page to the login page after 5 seconds. 
 
 ![CSS](../../images/lab3.c.2.jpeg)
 
