@@ -45,6 +45,8 @@ This project involved building a secure full-stack web application using PHP and
 
 Project's URL: [Individual Project 2](https://github.com/kalagam1/waph-kalagam1/tree/main/individualproject2)
 
+Demo's URL: [Video Demo]()
+
 ## Part 1 - Functional Requirements
 
 #### Task 1.A:  User Registration
