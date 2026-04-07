@@ -8,8 +8,6 @@
 
 **Email**: [kalagam1@udayton.edu](kalagam1@udayton.edu)
 
-![Mahitha's headshot](../../images/mahi.jpeg)
-
 ## Repository Information
 
 Repository's URL: [https://github.com/kalagam1/waph-kalagam1.git](https://github.com/kalagam1/waph-kalagam1.git)
