@@ -1,17 +1,8 @@
-# Web Application Programming and Hacking
-
-## Instructor: Dr. Phu Phung
-
-## Student
-
 **Name**: Mahitha Kalaga
 
 **Email**: [kalagam1@udayton.edu](kalagam1@udayton.edu)
 
 **Short-bio**: Cybersecurity enthusiast interested in ethical hacking, network defense, and secure coding practices. Continuously exploring vulnerabilities and how to defend against them.
-
-
-![Mahitha's headshot](images/mahi.jpeg)
 
 ## Repository Information
 
@@ -39,4 +30,3 @@ This is a private repository for Mahitha Kalaga to store all code from the cours
 
 - [Individual Project 1](https://github.com/kalagam1/kalagam1.github.io): Front-end Web Development with a Professional Profile Website and API Integration on github.io cloud service
   
-### Team Project
