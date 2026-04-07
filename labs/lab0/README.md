@@ -1,9 +1,3 @@
-# Web Application Programming and Hacking
-
-## Instructor: Dr. Phu Phung
-
-## Student
-
 **Name**: Mahitha Kalaga
 
 **Email**: [kalagam1@udayton.edu](kalagam1@udayton.edu)
